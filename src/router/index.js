@@ -27,6 +27,11 @@ export const constantRouterMap = [
         component: resolve => require(['@/view/biz/echarts/three'], resolve)
       },
       {
+        path: '/ranjin',
+        name: '燃尽图',
+        component: resolve => require(['@/view/biz/echarts/ranjin'], resolve)
+      },
+      {
         path: '/tinymce',
         name: '富文本',
         component: resolve => require(['@/view/biz/tinymce/tinymce'], resolve)
