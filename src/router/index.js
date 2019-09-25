@@ -31,6 +31,25 @@ export const constantRouterMap = [
         name: '燃尽图',
         component: resolve => require(['@/view/biz/echarts/ranjin'], resolve)
       },
+    ]
+  },
+  {
+    path: '/',
+    name: 'echarts实例',
+    component: Layout,
+    redirect: '/',
+    meta: { title: 'echarts实例' },
+    children: [
+      {
+        path: '/burnoutChart',
+        name: '燃尽图',
+        component: resolve => require(['@/view/biz/table/table-burnout-chart'], resolve)
+      },
+      {
+        path: '/tableCol',
+        name: '表格合并',
+        component: resolve => require(['@/view/biz/table/table'], resolve)
+      },
       {
         path: '/tinymce',
         name: '富文本',

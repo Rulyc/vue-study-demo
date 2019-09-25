@@ -1,5 +1,8 @@
 <template>
-  <div id="main" style="width: 500px;height: 250px;"></div>
+  <div>
+    <h3>柱状图demo</h3>
+    <div id="main" style="width: 500px;height: 250px;"></div>
+  </div>
 </template>
 
 <script>
