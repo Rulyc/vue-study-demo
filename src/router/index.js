@@ -12,7 +12,7 @@ export const constantRouterMap = [
     meta: { title: 'echarts实例' },
     children: [
       {
-        path: '/one',
+        path: '/',
         name: '柱状图',
         component: resolve => require(['@/view/biz/echarts/one'], resolve)
       },
@@ -34,22 +34,31 @@ export const constantRouterMap = [
     ]
   },
   {
-    path: '/',
-    name: 'echarts实例',
+    path: '/burnoutChart',
+    name: 'elementUI表格中的实例',
     component: Layout,
     redirect: '/',
-    meta: { title: 'echarts实例' },
+    meta: { title: 'elementUI表格中的实例' },
     children: [
       {
         path: '/burnoutChart',
-        name: '燃尽图',
+        name: '燃尽图/步骤条',
         component: resolve => require(['@/view/biz/table/table-burnout-chart'], resolve)
       },
       {
         path: '/tableCol',
-        name: '表格合并',
+        name: 'tree表格动态合并',
         component: resolve => require(['@/view/biz/table/table'], resolve)
       },
+    ]
+  },
+  {
+    path: '/tinymce',
+    name: '富文本实例',
+    component: Layout,
+    redirect: '/',
+    meta: { title: '富文本实例' },
+    children: [
       {
         path: '/tinymce',
         name: '富文本',
