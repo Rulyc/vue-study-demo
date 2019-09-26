@@ -50,6 +50,11 @@ export const constantRouterMap = [
         name: 'tree表格动态合并',
         component: resolve => require(['@/view/biz/table/table'], resolve)
       },
+      {
+        path: '/tableAll',
+        name: 'tree表格合计总数',
+        component: resolve => require(['@/view/biz/table/table-all'], resolve)
+      },
     ]
   },
   {
