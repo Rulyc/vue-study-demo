@@ -3,6 +3,7 @@
 -->
 <template>
   <div>
+    <h3>表格增加合计行，自动计算部分列的数据和</h3>
     <el-table
       :data="tableData"
       height="500"
@@ -260,25 +261,6 @@
 </script>
 
 <style lang="scss">
-  .el-step.is-horizontal.stepActive{
-    .el-step__head.is-finish{
-      .el-step__line{
-        // 当前步骤数横线样式设置
-        .el-step__line-inner{
-          width: 50% !important;
-          border-width: 1px !important;
-        }
-      }
-      // 当前步骤数圆圈样式设置
-      .el-step__icon.is-text{
-        background: #409eff;
-        color:#fff;
-      }
-    }
-  }
-  .el-table td:last-child div {
-    text-align: left;
 
-  }
 </style>
 

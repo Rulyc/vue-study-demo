@@ -3,6 +3,7 @@
 -->
 <template>
   <div>
+    <h3>动态合并表格列</h3>
     <el-table
       :data="tableData"
       height="500"
