@@ -3,7 +3,11 @@
 -->
 <template>
   <div>
-    <h3>表格增加合计行，自动计算部分列的数据和</h3>
+    <el-alert
+      title="表格增加合计行，自动计算部分列的数据和"
+      type="success"
+      :closable="false">
+    </el-alert>
     <el-table
       :data="tableData"
       height="500"

@@ -3,7 +3,11 @@
 -->
 <template>
   <div>
-    <h3>动态合并表格列</h3>
+    <el-alert
+      title="动态合并表格列"
+      type="success"
+      :closable="false">
+    </el-alert>
     <el-table
       :data="tableData"
       height="500"

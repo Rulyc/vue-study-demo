@@ -16,7 +16,7 @@ export default {
     padding:0;
   }
   body{
-    height: 670px;
+    /*height: 670px;*/
     overflow: hidden;
   }
   #app {

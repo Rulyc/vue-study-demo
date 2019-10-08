@@ -39,6 +39,14 @@
         </div>
       </el-aside>
       <el-main>
+        <el-breadcrumb class="app-breadcrumb" separator="/">
+          <transition-group name="breadcrumb">
+            <el-breadcrumb-item v-for="(item,index) in levelList" :key="item.path">
+              <span v-if="item.redirect==='noRedirect'||index==levelList.length-1" class="no-redirect">{{ item.meta.title }}</span>
+              <a v-else>{{ item.meta.title }}</a>
+            </el-breadcrumb-item>
+          </transition-group>
+        </el-breadcrumb>
         <div class="contain-right">
           <!--跳转到相应的界面-->
           <router-view :key="activeDate"></router-view>
@@ -53,6 +61,7 @@ export default {
   name: 'layout',
   data () {
     return {
+      levelList: null,
       screenHeight: document.documentElement.clientHeight ,// 屏幕高度
       selectMenuPath: '',
       menuPath: '/login',
@@ -78,7 +87,17 @@ export default {
       var oIframe = document.getElementById('app')
       // alert(this.$store.getters.screenHeight)
       oIframe.style.height = (Number(val) - 40) + 'px'
+    },
+    $route(route) {
+      // if you go to the redirect page, do not update the breadcrumbs
+      if (route.path.startsWith('/redirect/')) {
+        return
+      }
+      this.getBreadcrumb()
     }
+  },
+  created(){
+    this.getBreadcrumb()
   },
   mounted(){
     var _this = this
@@ -90,6 +109,11 @@ export default {
   computed: {
   },
   methods: {
+    getBreadcrumb() {
+      let matched = this.$route.matched.filter(item => item.meta && item.meta.title)
+      this.levelList = matched.filter(item => item.meta && item.meta.title && item.meta.breadcrumb !== false)
+    },
+
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
     },
@@ -126,10 +150,17 @@ export default {
       //  position: absolute;
       //  right: 0;
       //  width: calc(100% - 270px);
-      height: calc(100% - 70px);
+      height: calc(100% - 95px);
       border-top-right-radius: 10px;
-      padding: 0;
+      padding: 20px;
       margin: 0;
+    }
+  }
+  .el-main{
+    padding:0;
+    .el-breadcrumb.app-breadcrumb{
+      padding:10px 20px;
+      border-bottom:1px solid #eee;
     }
   }
 </style>

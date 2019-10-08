@@ -1,6 +1,10 @@
 <template>
   <div>
-    <h3>柱状图demo</h3>
+    <el-alert
+      title="echarts-柱状图"
+      type="success"
+      :closable="false">
+    </el-alert>
     <div id="main" style="width: 500px;height: 250px;"></div>
   </div>
 </template>

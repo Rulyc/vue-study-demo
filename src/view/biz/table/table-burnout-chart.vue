@@ -3,7 +3,11 @@
 -->
 <template>
   <div>
-     <h3>表格中插入燃尽图以及步骤条</h3>
+    <el-alert
+      title="表格中插入燃尽图以及步骤条"
+      type="success"
+      :closable="false">
+    </el-alert>
         <el-table
           border
           :data="tableData"

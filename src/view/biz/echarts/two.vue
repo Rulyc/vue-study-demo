@@ -3,7 +3,11 @@
 -->
 <template>
   <div>
-    <h3>折线图demo</h3>
+    <el-alert
+      title="echarts-折线图"
+      type="success"
+      :closable="false">
+    </el-alert>
     <div id="main" style="width: 350px;height: 150px;"></div>
   </div>
 
