@@ -8,6 +8,9 @@
       type="success"
       :closable="false">
     </el-alert>
+    <el-row>
+      <el-button @click="dialogClick">弹窗</el-button>
+    </el-row>
     <el-table
       :data="tableData"
       height="500"
@@ -56,17 +59,25 @@
           <span>{{ scope.$index==0 ? item.nameHandle : ''}}</span>
         </template>
       </el-table-column>
-
-
     </el-table>
+
+    <el-dialog :visible.sync="showVisible" v-if='showVisible' :close-on-click-modal="false" title="合并详情" width="80%">
+      <tableCol :rowID="rowID" :visible="showVisible"/>
+    </el-dialog>
   </div>
 </template>
 
 <script>
+  import tableCol from './table-col.vue'
   export default {
     name: "one",
+    components:{
+      tableCol
+    },
     data() {
       return {
+        showVisible:false,
+        rowID:'',
         spanArr: [],
         row: [],
         expandedRows: false,
@@ -234,6 +245,9 @@
       this.setdates(arrObject)
     },
     methods:{
+      dialogClick(){
+        this.showVisible = true
+      },
       /** 合并列数的方法 */
       setdates (arr) {
         // eslint-disable-next-line one-var
@@ -249,14 +263,14 @@
           // if (o === 'undefined') {
           //   this.spanArr.push(0) // 0代表不合并
           // } else {
-            for (let i = 0; i < obj[o]; i++) {
-              if (i === 0) {
-                this.spanArr.push(obj[o])
-              } else {
-                this.spanArr.push(0) // 0代表不合并
-              }
+          for (let i = 0; i < obj[o]; i++) {
+            if (i === 0) {
+              this.spanArr.push(obj[o])
+            } else {
+              this.spanArr.push(0) // 0代表不合并
             }
           }
+        }
         // }
         console.log(this.spanArr, 'uuuuuu');
       },
