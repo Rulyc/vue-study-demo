@@ -81,6 +81,21 @@ export const constantRouterMap = [
       },
     ]
   },
+  {
+    path: '/components',
+    name: '封装组件',
+    component: Layout,
+    // redirect: '/',
+    meta: { title: '封装组件' },
+    children: [
+      {
+        path: '/Demo01',
+        name: '封装组件第一篇',
+        component: resolve => require(['@/view/biz/useComponents/Demo01'], resolve),
+        meta: { title: '封装组件第一篇' },
+      },
+    ]
+  },
 ]
 
 export default new Router({
