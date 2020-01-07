@@ -36,7 +36,6 @@
          age:18,
          title:'父组件调用自定义dispatch方法获取数据'
        }
-       debugger
         // 自定义派发事件，给父级组件传递消息
         this.dispatch('parentComponent','sendParent',params)
       }

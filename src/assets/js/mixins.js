@@ -29,23 +29,23 @@ function broadcast(componentName, eventName, params){
 
 export  default {
   methods:{
+    /** 子给父传递消息 派发 */
     dispatch(componentName,eventName,params){
-      debugger
-      let parent = this.$parent || this.$root;
-      let name = parent.$options.name;
-      while (parent && (!name || name !== componentName)) {
-        parent = parent.$parent;
+      let parent = this.$parent || this.$root; // 获取根节点
+      let name = parent.$options.name; // 获取根节点的名字
+      while (parent && (!name || name !== componentName)) { // 当根节点及名字存在，且名字不为传入的名字
+        parent = parent.$parent; // 获取根节点的父级
         if(parent){
-          name = parent.$options.name;
+          name = parent.$options.name; // 获取根节点的父级名称
         }
       }
-      if(parent){
+      if(parent){ // 祖父节点
+        // 触发当前实例上的事件
         parent.$emit.apply(parent,[eventName].concat(params))
       }
     },
-    /** 父给子传递消息 */
+    /** 父给子传递消息 广播 */
     broadcast(componentName,eventName,params){
-      debugger
       // 递归调用broadcast方法，call的第一位为this,后面依次跟参数，参数与参数之间用逗号隔开
       broadcast.call(this,componentName,eventName,params)
     }
