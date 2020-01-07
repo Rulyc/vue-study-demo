@@ -96,6 +96,21 @@ export const constantRouterMap = [
       },
     ]
   },
+  {
+    path: '/communication',
+    name: '组件通信',
+    component: Layout,
+    // redirect: '/',
+    meta: { title: '组件通信' },
+    children: [
+      {
+        path: '/patentDemo01',
+        name: '父子组件通信',
+        component: resolve => require(['@/view/biz/componentCommunication/parent-son-demo01/parent'], resolve),
+        meta: { title: '父子组件通信' },
+      },
+    ]
+  },
 ]
 
 export default new Router({
