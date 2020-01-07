@@ -109,6 +109,12 @@ export const constantRouterMap = [
         component: resolve => require(['@/view/biz/componentCommunication/parent-son-demo01/parent'], resolve),
         meta: { title: '父子组件通信' },
       },
+      {
+        path: '/patentDemo02',
+        name: 'patentDemo02',
+        component: resolve => require(['@/view/biz/componentCommunication/parent-son-demo02/parent'], resolve),
+        meta: { title: 'dispatch 和 broadcast' },
+      },
     ]
   },
 ]
