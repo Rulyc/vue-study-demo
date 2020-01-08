@@ -94,6 +94,12 @@ export const constantRouterMap = [
         component: resolve => require(['@/view/biz/useComponents/Demo01'], resolve),
         meta: { title: '封装组件第一篇' },
       },
+      {
+        path: '/Demo02',
+        name: '封装组件第二篇',
+        component: resolve => require(['@/view/biz/useComponents/Demo02'], resolve),
+        meta: { title: '表单' },
+      },
     ]
   },
   {
