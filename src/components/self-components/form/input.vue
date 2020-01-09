@@ -1,5 +1,6 @@
 <template>
   <input
+    class="c-input__inner"
     :type="type"
     :value="currentValue"
     @input="handleInput"
@@ -15,7 +16,7 @@
     props:{
       // input框上实时响应的数据
       value:{
-        type:[String, Number],
+        type:String,
         default:''
       },
       // input框的类型
@@ -33,9 +34,7 @@
       // 当value发生变化时，给this.currrentValue赋值
       value: {
         handler (val) {
-          if (val) {
-            this.currentValue = val
-          }
+          this.currentValue = val
         },
         deep: true,
         immediate: true
@@ -57,6 +56,15 @@
   }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.c-input__inner{
+  background-color: #fff;
+  border-radius: 4px;
+  height: 30px;
+  line-height: 30px;
+  outline: none;
+  border:1px solid #dcdfe6;
+  display: inline-block;
+  padding: 0 15px;
+}
 </style>
