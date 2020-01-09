@@ -37,6 +37,7 @@
       // 通过$on监听FromItem派发出来的事件on-form-item-add
       this.$on('on-form-item-add', (field)=>{
         if(field){
+          // 接收，并用数组缓存起来
           this.fields.push(field)
         }
       })

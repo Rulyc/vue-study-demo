@@ -7,10 +7,10 @@
       </el-alert>
       <c-form ref="form" :model="formObj" :rules="formRules">
         <c-form-item label="姓名" prop="name" style="height: 70px;">
-          <c-input v-model="formObj.name"></c-input>
+          <c-input v-model="formObj.name" @change="changeName"></c-input>
         </c-form-item>
         <c-form-item label="邮箱" prop="email" style="height: 70px;">
-          <c-input v-model="formObj.email"></c-input>
+          <c-input v-model="formObj.email" @focus="focusEmail" @blur="blurEmail"></c-input>
         </c-form-item>
       </c-form>
       <c-button size="large" type="primary" @click="handleSubmit">提交</c-button>
@@ -49,6 +49,19 @@
       }
     },
     methods:{
+      /** 邮箱获取焦点事件 */
+      focusEmail(val){
+        console.log(`邮箱获取焦点: ${val}`)
+      },
+      /** 名字输入框change事件 */
+      changeName(val){
+        console.log(`名称change事件: ${val}`)
+      },
+      /** 邮箱输入框失去焦点 */
+      blurEmail(val){
+        console.log(`邮箱失去焦点事件: ${val}`)
+      },
+      /** 提交按钮 */
       handleSubmit(){
         this.$refs.form.validate(valid=>{
           if(valid){
@@ -58,6 +71,7 @@
           }
         })
       },
+      /** 重置按钮 */
       handleReset(){
         this.$refs.form.resetFields();
       }
