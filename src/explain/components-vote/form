@@ -322,7 +322,7 @@ export default {
        * @param callback 回调函数  --- 回调主要是给form用的，
        *        form中可以通过提交按钮一次性校验所有的formitem
        */
-      validateItem(trigger,  callback = function () {}) {
+      validate(trigger,  callback = function () {}) {
         let rules = this.getFilteredRule(trigger); // 当前获取blur和change的校验规则
         if (!rules || rules.length === 0) {
           return true;
@@ -344,11 +344,11 @@ export default {
       },
       /** 失去焦点时触发校验规则 */
       onFieldBlur() {
-         this.validateItem('blur');
+         this.validate('blur');
       },
       /** 内容改变时触发校验规则 */
       onFieldChange() {
-         this.validateItem('change');
+         this.validate('change');
       },
     }
   }
