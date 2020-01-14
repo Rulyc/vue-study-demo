@@ -12,6 +12,9 @@
         <c-form-item label="邮箱" prop="email" style="height: 70px;">
           <c-input v-model="formObj.email" @focus="focusEmail" @blur="blurEmail"></c-input>
         </c-form-item>
+        <c-form-item label="是否选中" prop="check" style="height: 70px;">
+          <c-check-box v-model="formObj.check" @change="checkedChange"></c-check-box>
+        </c-form-item>
       </c-form>
       <c-button size="large" type="primary" @click="handleSubmit">提交</c-button>
       <c-button size="large" @click="handleReset">重置</c-button>
@@ -23,19 +26,22 @@
   import cFormItem from '@/components/self-components/form/form-item'
   import cInput from '@/components/self-components/form/input'
   import cButton from '@/components/self-components/c-button'
+  import cCheckBox from '@/components/self-components/form/checkbox'
   export default {
     name: "Demo02",
     components:{
       cForm,
       cFormItem,
       cInput,
-      cButton
+      cButton,
+      cCheckBox
     },
     data(){
       return{
         formObj:{// 表单数据定义
           name:'',
-          email:''
+          email:'',
+          check: '',
         } ,
         formRules:{// 表单检验规则
           name: [
@@ -43,12 +49,18 @@
           ],
           email:[
             {required:true, message: '邮箱不能为空', trigger:'blur'},
-            {type: 'email', message:'邮箱格式不正确', trigger:'blur'}
+            {type: 'email', message:'邮箱格式不正确', trigger:'change'}
+          ],
+          check: [
+            { type:'boolean', required: true, message: '是否选中不能为空',trigger: 'change' }
           ]
         },
       }
     },
     methods:{
+      checkedChange(val){
+        alert(val)
+      },
       /** 邮箱获取焦点事件 */
       focusEmail(val){
         console.log(`邮箱获取焦点: ${val}`)

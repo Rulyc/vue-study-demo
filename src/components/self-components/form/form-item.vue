@@ -81,11 +81,11 @@
       },
       /** 失去焦点时触发校验规则 */
       onFieldBlur() {
-        this.validateItem('blur');
+        this.validate('blur');
       },
       /** 内容改变时触发校验规则 */
       onFieldChange() {
-        this.validateItem('change');
+        this.validate('change');
       },
       /**  从form的rules中，获取当前FormItem的校验规则 */
       getRules(){
@@ -109,10 +109,17 @@
        * @param callback 回调函数  --- 回调主要是给form用的，
        *        form中可以通过提交按钮一次性校验所有的formitem
        */
-      validateItem(trigger,  callback = function () {}) {
+      validate(trigger,  callback = function () {}) {
         let rules = this.getFilteredRule(trigger); // 当前获取blur和change的校验规则
         if (!rules || rules.length === 0) {
-          return true;
+          // return true;
+          if (!this.required) {
+            this.validateState = '';
+            callback();
+            return true;
+          }else {
+            rules = [{required: true}];
+          }
         }
         this.validateState = 'validating';// 设置状态为校验中
         // 以下为 async-validator 库的调用方法
@@ -124,6 +131,7 @@
         console.log(model,'model,lllll')
         // 调用AsyncValidator开源库中的校验方法
         validator.validate(model, { firstFields: true }, errors => {
+          console.log(errors,'errors')
           this.validateState = !errors ? 'success' : 'error';
           this.validateMessage = errors ? errors[0].message : '';
           callback(this.validateMessage);
