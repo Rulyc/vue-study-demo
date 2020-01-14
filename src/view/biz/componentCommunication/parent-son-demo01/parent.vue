@@ -23,6 +23,7 @@
 </template>
 
 <script>
+  import axios from 'axios'
   import sonComponent from './son'
   export default {
     name: "parent",
@@ -38,6 +39,20 @@
       }
     },
     mounted(){
+      axios.get('/api/articles')
+        .then(e => {
+          console.log(e)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      axios.post('/api/articles',{pageIndex:2,pageSize:20})
+        .then(e => {
+          console.log(e)
+        })
+        .catch(err => {
+          console.log(err)
+        })
       this.getData()
     },
     methods:{
