@@ -1,5 +1,5 @@
 /**  组件的通信之 找到任意组件实例方法 -----findComponents系列方法
- *                 content 当前节点(this)     componentName要找到的组件name
+ *                 context 当前节点(this)     componentName要找到的组件name
  * */
 
 
@@ -9,7 +9,7 @@
  * eg: A为父组件组件中定义了sayHello () { console.log('Hello, Vue.js'); }
  *     B为子组件中直接调用const comA = findComponentUpward(this, 'componentA');comA.sayHello();
  * */
-function findComponentUpward(content,componentName){
+function findComponentUpward(context,componentName){
   let parent = context.$parent; // 获取当前节点的父节点
   let name = parent.$options.name // 得到父节点的名字
 
@@ -22,8 +22,8 @@ function findComponentUpward(content,componentName){
     if(parent){ // 如果存在
       name = parent.$options.name // 获取此时的节点名称
     }
-    return parent;
   }
+  return parent;
 }
 
 /**
@@ -31,9 +31,9 @@ function findComponentUpward(content,componentName){
  * 与 findComponentUpward 不同的是，findComponentsUpward 返回的是⼀个数组,包含了所有找到的组件实例
  * ⼀般只⽤在递归组件⾥⾯,因为这个函数是⼀直向上寻找⽗级 （parent）的，只有递归组件的⽗级才是⾃身
  * */
-function findComponentsUpward(content, componentName){
+function findComponentsUpward(context, componentName){
   let parents = [];
-  const patent = content.$parent; // 当前节点的父节点
+  const patent = context.$parent; // 当前节点的父节点
 
   if(parent){ // 如果当前组件的父节点存在的时候
     if(parent.$options.name === componentName){ // 如果当前组件的父节点的name === 指定查找的组件name

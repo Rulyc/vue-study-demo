@@ -37,9 +37,10 @@
     },
     computed:{
       // 从 Form 的 model 中动态得到当前表单组件的数据
-       fieldValue () {
-         return this.form.model[this.prop];
-       },
+      fieldValue () {
+        debugger
+        return this.form.model[this.prop];
+      },
 
     },
     mounted() {
@@ -65,6 +66,10 @@
       this.dispatch('cForm', 'on-form-item-remove', this)
     },
     methods:{
+      fieldValues () {
+        debugger
+        return this.form.model[this.prop];
+      },
       /** 当触发这两个方法时，就意味着要进行一次校验 */
       setRules(){
         let rules = this.getRules();
@@ -127,7 +132,7 @@
         descriptor[this.prop] = rules;
         const validator = new AsyncValidator(descriptor);
         let model = {};
-        model[this.prop] = this.fieldValue;
+        model[this.prop] = this.fieldValues();
         console.log(model,'model,lllll')
         // 调用AsyncValidator开源库中的校验方法
         validator.validate(model, { firstFields: true }, errors => {

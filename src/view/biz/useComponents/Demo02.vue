@@ -15,6 +15,14 @@
         <c-form-item label="是否选中" prop="check" style="height: 70px;">
           <c-check-box v-model="formObj.check" @change="checkedChange"></c-check-box>
         </c-form-item>
+        <c-form-item label="是否选中" prop="checkArr" style="height: 70px;">
+          <c-check-box-group v-model="formObj.checkArr" @change="checkedArrChange">
+            <c-check-box  value="吃饭" label="chi" >
+            </c-check-box>
+            <c-check-box  value="跑步" label="pao">
+            </c-check-box>
+          </c-check-box-group>
+        </c-form-item>
       </c-form>
       <c-button size="large" type="primary" @click="handleSubmit">提交</c-button>
       <c-button size="large" @click="handleReset">重置</c-button>
@@ -27,6 +35,7 @@
   import cInput from '@/components/self-components/form/input'
   import cButton from '@/components/self-components/c-button'
   import cCheckBox from '@/components/self-components/form/checkbox'
+  import cCheckBoxGroup from '@/components/self-components/form/checkbox-group'
   export default {
     name: "Demo02",
     components:{
@@ -34,14 +43,16 @@
       cFormItem,
       cInput,
       cButton,
-      cCheckBox
+      cCheckBox,
+      cCheckBoxGroup
     },
     data(){
       return{
         formObj:{// 表单数据定义
           name:'',
           email:'',
-          check: '',
+          check: false,
+          checkArr:[]
         } ,
         formRules:{// 表单检验规则
           name: [
@@ -53,12 +64,20 @@
           ],
           check: [
             { type:'boolean', required: true, message: '是否选中不能为空',trigger: 'change' }
+          ],
+          checkArr: [
+            { type:'array', required: true, message: '是否选中不能为空',trigger: 'change' }
           ]
         },
       }
     },
     methods:{
+      checkedArrChange(val){
+        // this.formObj.checkArr = val
+        console.log(this.formObj.checkArr,'ggsssssssssss',val)
+      },
       checkedChange(val){
+        console.log(this.formObj.check,'this.formObj.check')
         alert(val)
       },
       /** 邮箱获取焦点事件 */
