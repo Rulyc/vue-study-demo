@@ -51,7 +51,7 @@
         formObj:{// 表单数据定义
           name:'',
           email:'',
-          check: false,
+          check: '',
           checkArr:[]
         } ,
         formRules:{// 表单检验规则
@@ -78,7 +78,6 @@
       },
       checkedChange(val){
         console.log(this.formObj.check,'this.formObj.check')
-        alert(val)
       },
       /** 邮箱获取焦点事件 */
       focusEmail(val){

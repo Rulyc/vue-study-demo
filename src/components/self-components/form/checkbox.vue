@@ -60,11 +60,11 @@
     },
     watch:{
       value(val){
-        // if(val === this.trueValue || val === this.falseValue){
-        //   this.updateModel();
-        // }else {
-        //   throw 'Value should be trueValue or falseValue.';
-        // }
+        if(val === this.trueValue || val === this.falseValue){
+          this.updateModel();
+        }else {
+          // throw 'Value should be trueValue or falseValue.';
+        }
       }
     },
     mounted(){
