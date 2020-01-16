@@ -24,7 +24,7 @@
           </c-check-box-group>
         </c-form-item>
       </c-form>
-      <c-button size="large" type="primary" @click="handleSubmit">提交</c-button>
+      <c-button size="large" type="primary" @click="handleSubmit" class="button">提交</c-button>
       <c-button size="large" @click="handleReset">重置</c-button>
     </div>
 </template>
@@ -95,9 +95,9 @@
       handleSubmit(){
         this.$refs.form.validate(valid=>{
           if(valid){
-            alert('提交成功')
+            // alert('提交成功')
           }else{
-            alert('失败')
+            // alert('失败')
           }
         })
       },
