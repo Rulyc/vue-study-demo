@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-alert
-      title="组件封装第一篇"
+      title="组件封装之button按钮Demo"
       type="success"
       :closable="false">
     </el-alert>

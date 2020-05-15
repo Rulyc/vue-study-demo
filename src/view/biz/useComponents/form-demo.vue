@@ -1,7 +1,7 @@
 <template>
     <div>
       <el-alert
-        title="组件封装第二篇之表单"
+        title="组件封装第二篇之form表单Demo"
         type="success"
         :closable="false">
       </el-alert>

@@ -38,7 +38,6 @@
     computed:{
       // 从 Form 的 model 中动态得到当前表单组件的数据
       fieldValue () {
-        debugger
         return this.form.model[this.prop];
       },
 
@@ -67,7 +66,6 @@
     },
     methods:{
       fieldValues () {
-        debugger
         return this.form.model[this.prop];
       },
       /** 当触发这两个方法时，就意味着要进行一次校验 */
