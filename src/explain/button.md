@@ -1,18 +1,9 @@
-
-  
-在 `main.js` 中写入以下内容：
-```
-import Vue from 'vue';
-import App from './App.vue';
-import router from './router';
-
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-
-Vue.config.productionTip = false;
-
-new Vue({
-  render: h => h(App),
-  router,
-}).$mount('#app');
+### 自定义
+```html
+<el-tabs v-model="activeName" type="card" @tab-click="handleClick">
+    <el-tab-pane label="用户管理" name="first">用户管理</el-tab-pane>
+    <el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
+    <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
+    <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
+ </el-tabs>
 ```

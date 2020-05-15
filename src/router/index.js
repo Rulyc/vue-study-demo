@@ -22,7 +22,7 @@ export const constantRouterMap = [
         name: 'button案例',
         component: resolve => require(['@/view/biz/useComponents/button-md'], resolve),
         meta: { title: 'button组件案例' },
-      }
+      },
     ]
   },
   {

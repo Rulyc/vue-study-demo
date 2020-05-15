@@ -154,6 +154,7 @@ export default {
       border-top-right-radius: 10px;
       padding: 20px;
       margin: 0;
+      overflow-y: auto;
     }
   }
   .el-main{
