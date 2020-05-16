@@ -64,6 +64,12 @@ export const constantRouterMap = [
         component: resolve => require(['@/view/biz/table/table-all'], resolve),
         meta: { title: 'tree表格合计总数' },
       },
+      {
+        path: '/tableDemo',
+        name: 'tableDemo',
+        component: resolve => require(['@/view/biz/table/tableDemo'], resolve),
+        meta: { title: 'tableDemo' },
+      },
     ]
   },
   {

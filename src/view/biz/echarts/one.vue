@@ -1,5 +1,6 @@
 <template>
   <div>
+<!--    <loading></loading>-->
     <el-alert
       title="echarts-柱状图"
       type="success"
@@ -11,8 +12,12 @@
 
 <script>
   import echarts from 'echarts'
+  import loading from '@/components/loading'
   export default {
     name: "one",
+    components:{
+      loading
+    },
     mounted(){
       this.dd()
     },
