@@ -6,6 +6,8 @@
       :closable="false">
     </el-alert>
     <div id="main" style="width: 500px;height: 250px;"></div>
+    <vue-button>默认按钮</vue-button>
+    <vue-button type="warn">警告按钮</vue-button>
   </div>
 </template>
 
