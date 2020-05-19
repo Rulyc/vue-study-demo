@@ -7,6 +7,7 @@
         <div class="contain-left" style="height: 100%;">
           <!--自定义颜色-->
           <el-menu
+            ref="menuRef"
             :default-active="menuPath"
             class="el-menu-vertical-demo"
             background-color="#545c64"
@@ -64,8 +65,8 @@ export default {
       levelList: null,
       screenHeight: document.documentElement.clientHeight ,// 屏幕高度
       selectMenuPath: '',
-      menuPath: '/login',
-      value: '/login',
+      menuPath: '',
+      value: '',
       activeDate: ''
       // containerHeight: ''
     }
@@ -76,6 +77,7 @@ export default {
     this.menuPath = path
     this.selectMenuPath = path
     console.log(this.menuPath, 'this.menuPath')
+    this.getBreadcrumb()
   },
   watch: {
     menuPath () {
@@ -88,16 +90,13 @@ export default {
       // alert(this.$store.getters.screenHeight)
       oIframe.style.height = (Number(val) - 40) + 'px'
     },
-    $route(route) {
-      // if you go to the redirect page, do not update the breadcrumbs
-      if (route.path.startsWith('/redirect/')) {
-        return
-      }
-      this.getBreadcrumb()
-    }
-  },
-  created(){
-    this.getBreadcrumb()
+    // $route(route) {
+    //   // if you go to the redirect page, do not update the breadcrumbs
+    //   if (route.path.startsWith('/redirect/')) {
+    //     return
+    //   }
+    //   this.getBreadcrumb()
+    // },
   },
   mounted(){
     var _this = this
