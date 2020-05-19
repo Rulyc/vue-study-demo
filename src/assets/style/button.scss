@@ -1,0 +1,178 @@
+// 默认按钮的颜色
+.c-button{
+  border-radius: 4px;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #dcdfe6;
+  color: #606266;
+  outline: none;
+  background-color: #fff;
+  &.is-disabled{
+    color: #c0c4cc;
+    cursor: not-allowed;
+    background-image: none;
+    background-color: #fff;
+    border-color: #ebeef5;
+  }
+}
+
+// 类型为default
+.c-button-default {
+  &:not(.is-disabled):hover{
+    cursor: pointer;
+    color: #409eff;
+    border-color: #c6e2ff;
+    background-color: #ecf5ff;
+  }
+  &.is-plain{
+    &:hover{
+      background: #fff;
+      border-color: $btn-primary-bg;
+      color: $btn-primary-bg;
+    }
+  }
+}
+/** size begin */
+// 大按钮
+.c-button-large{
+  padding:10px 20px;
+}
+// 小按钮
+.c-button-small{
+  font-size:12px;
+  padding:9px 15px;
+}
+/** size end */
+
+/** type begin */
+// 类型为primary
+.c-button-primary {
+  background-color: $btn-primary-bg;
+  border-color: $btn-primary-bg;
+  color:#fff;
+  &:hover,&.is-disabled{
+    color: #fff;
+  }
+  &.is-disabled{
+    cursor: not-allowed;
+    background: $btn-primary-bg-disabled;
+    border-color: $btn-primary-bg-disabled;
+  }
+  &:not(.is-disabled):hover{
+    background-color: $btn-primary-bg-hover;
+    border-color: $btn-primary-bg-hover;
+    color: #fff;
+  }
+
+  &.is-plain{
+    color: $btn-primary-bg;
+    background: #ecf5ff;
+    border-color: #b3d8ff;
+    &:hover{
+      background: $btn-primary-bg;
+      border-color: $btn-primary-bg;
+      color: #fff;
+    }
+  }
+}
+// 类型为warning
+.c-button-warning {
+  color: #fff;
+  background-color: $btn-warning-bg;
+  border-color: $btn-warning-bg;
+  &:hover,&.is-disabled{
+    color: #fff;
+  }
+  &.is-disabled{
+    cursor: not-allowed;
+    background-color: $btn-warning-bg-disabled;
+    border-color: $btn-warning-bg-disabled;
+  }
+  &:not(.is-disabled):hover{
+    cursor: pointer;
+    background: $btn-warning-bg-hover;
+    border-color: $btn-warning-bg-hover;
+    color: #fff;
+  }
+}
+// 类型为success
+.c-button-success {
+  color: #fff;
+  background-color: $btn-success-bg;
+  border-color: $btn-success-bg;
+  &:hover,&.is-disabled{
+    color: #fff;
+  }
+  &.is-disabled{
+    cursor: not-allowed;
+    background-color: $btn-success-bg-disabled;
+    border-color: $btn-success-bg-disabled;
+  }
+  &:not(.is-disabled):hover{
+    cursor: pointer;
+    background: $btn-success-bg-hover;
+    border-color: $btn-success-bg-hover;
+    color: #fff;
+  }
+}
+// 类型为info
+.c-button-info {
+  color: #fff;
+  background-color: $btn-info-bg;
+  border-color: $btn-info-bg;
+  &:hover,&.is-disabled{
+    color: #fff;
+  }
+  &.is-disabled{
+    cursor: not-allowed;
+    background-color: $btn-info-bg-disabled;
+    border-color: $btn-info-bg-disabled;
+  }
+  &:not(.is-disabled):hover{
+    cursor: pointer;
+    background: $btn-info-bg-hover;
+    border-color: $btn-info-bg-hover;
+    color: #fff;
+  }
+}
+// 类型为danger
+.c-button-danger {
+  color: #fff;
+  background-color: #f56c6c;
+  border-color: #f56c6c;
+  &:hover,&.is-disabled{
+    color: #fff;
+  }
+  &.is-disabled{
+    cursor: not-allowed;
+    background-color: #fab6b6;
+    border-color: #fab6b6;
+  }
+  &:not(.is-disabled):hover{
+    cursor: pointer;
+    background: #f78989;
+    border-color: #f78989;
+    color: #fff;
+  }
+}
+
+// 类型为文字按钮
+.c-button-text {
+  border-color: transparent;
+  color: #409eff;
+  background: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  &.is-disabled{
+    color: #c0c4cc;
+    cursor: not-allowed;
+    background-color: transparent;
+    border-color: transparent;
+  }
+  &:not(.is-disabled):hover{
+    //cursor: pointer;
+    background-color: transparent;
+    border-color:transparent;
+  }
+}
+/** type end */

@@ -6,7 +6,7 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/style/common.scss'
-
+import './assets/style/all-style.scss'
 import 'prismjs/themes/prism.css'; /* 解析md,高亮显示且解析slot */
 
 Vue.use(ElementUI)

@@ -6,24 +6,48 @@
       :closable="false">
     </el-alert>
     <el-row>
-      <c-button>默认按钮</c-button>
-      <c-button size="large">large大按钮</c-button>
-      <c-button size="small">small小按钮</c-button>
+<!--      <c-button>默认按钮</c-button>-->
+<!--      <c-button size="large">large大按钮</c-button>-->
+<!--      <c-button size="small">small小按钮</c-button>-->
     </el-row>
     <el-row>
       <!-- 如果子组件中没有$emit方法，则@click会监听不到，即不执行；需要写@click.native才可以     -->
-      <c-button size="large" @click.native="defaultClick">默认按钮</c-button>
-      <c-button size="large" type="primary" @click.native="primaryClick">primary</c-button>
-      <c-button size="large" type="warning" @click="warningClick">warning</c-button>
-      <c-button size="large" type="success" :disabled="true">success</c-button>
-      <c-button size="large" type="info">info</c-button>
-      <c-button size="large" type="danger">danger</c-button>
+<!--      <c-button size="large" @click.native="defaultClick">默认按钮</c-button>-->
+<!--      <c-button size="large" type="primary" @click.native="primaryClick">primary</c-button>-->
+<!--      <c-button size="large" type="warning" @click="warningClick">warning</c-button>-->
+<!--      <c-button size="large" type="success" :disabled="true">success</c-button>-->
+<!--      <c-button size="large" type="info">info</c-button>-->
+<!--      <c-button size="large" type="danger">danger</c-button>-->
     </el-row>
+    <el-row>
+      <c-button type="primary">primary按钮</c-button>
+      <c-button type="warning">warning按钮</c-button>
+      <c-button type="success">success按钮</c-button>
+      <c-button type="info">info按钮</c-button>
+      <c-button type="danger">danger按钮</c-button>
+      <c-button type="default">default按钮</c-button>
+      <c-button type="text">text按钮</c-button>
+    </el-row>
+    <h2>禁用按钮</h2>
+    <el-row>
+      <c-button type="primary" disabled>primary按钮</c-button>
+      <c-button type="warning" disabled>warning按钮</c-button>
+      <c-button type="success" disabled>success按钮</c-button>
+      <c-button type="info" disabled>info按钮</c-button>
+      <c-button type="danger" disabled>danger按钮</c-button>
+      <c-button type="default" disabled>default按钮</c-button>
+      <c-button type="text" disabled>text按钮</c-button>
+    </el-row>
+    <h2>plain</h2>
+    <c-button plain>朴素按钮</c-button>
+    <c-button type="primary" plain>primary按钮</c-button>
+    <c-button type="primary" disabled plain>primary按钮</c-button>
   </div>
 </template>
 
 <script>
-  import cButton from '@/components/self-components/c-button'
+  // import cButton from '@/components/self-components/c-button'
+  import cButton from '@/components/button/button'
   export default {
     name: "Demo01",
     components:{
