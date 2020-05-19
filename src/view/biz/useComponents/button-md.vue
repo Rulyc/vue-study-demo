@@ -1,13 +1,18 @@
 <template>
   <div class="markdown">
 <!--    <div v-html="readme"></div> // 最后在页面上使用-->
-    <readme></readme>
-    <viewCard :isShow="isShow">
-      <div slot="view">
-        <c-button size="large" type="info">info</c-button>
-      </div>
-      <div slot="code">eeeeeeeeeeeeeeeeee</div>
-    </viewCard>
+    <readme>
+      <c-button size="large" type="info">info</c-button>
+      <template v-slot:footer>
+        <c-button size="large" type="info">3333</c-button>
+      </template>
+    </readme>
+<!--    <viewCard :isShow="isShow">-->
+<!--      <div slot="view">-->
+<!--        <c-button size="large" type="info">info</c-button>-->
+<!--      </div>-->
+<!--      <div slot="code">eeeeeeeeeeeeeeeeee</div>-->
+<!--    </viewCard>-->
   </div>
 
 </template>

@@ -65,10 +65,22 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       },
+      // {
+      //   test:/\.md$/,
+      //   loader:'vue-markdown-loader',
+      //   // options:vueMarkdown,
+      // },
+      /* 解析md,高亮显示且解析slot */
       {
-        test:/\.md$/,
-        loader:'vue-markdown-loader',
-        // options:vueMarkdown,
+        test: /\.md$/,
+        use: [
+          {
+            loader: 'vue-loader',
+          },
+          {
+            loader: require.resolve('../markdown-loader'),
+          },
+        ],
       },
     ]
   },

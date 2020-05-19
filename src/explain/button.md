@@ -7,3 +7,12 @@
     <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
  </el-tabs>
 ```
+#扩展 slot 
+###default
+这里插入一个默认插槽
+<slot></slot>
+
+####footer
+这里插入一个具名插槽
+<slot name="footer"></slot>
+
