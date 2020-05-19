@@ -68,10 +68,15 @@
     color: $btn-primary-bg;
     background: #ecf5ff;
     border-color: #b3d8ff;
-    &:hover{
+    &:not(.is-disabled):hover{
       background: $btn-primary-bg;
       border-color: $btn-primary-bg;
       color: #fff;
+    }
+    &.is-disabled{
+      color: #8cc5ff;
+      background-color: #ecf5ff;
+      border-color: #d9ecff;
     }
   }
 }
