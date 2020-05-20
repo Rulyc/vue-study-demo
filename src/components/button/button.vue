@@ -3,14 +3,18 @@
 * 支持：按钮大小设置【large,small,mini】
 * 支持：按钮类型设置【primary,warning,success,info,danger,default，text】
 * 支持：禁用
+* 支持：朴素按钮
+* 支持：圆角按钮
 -->
 <template>
   <button
+    @click="handleClick"
     class="c-button"
     :class="[size?'c-button-'+size:'',
              'c-button-'+type,
              disabled?'is-disabled':'',
-             plain ? 'is-plain':'']"
+             plain ? 'is-plain':'',
+             circular?'is-circular':'']"
     :disabled="disabled"
   >
     <slot></slot>
@@ -27,7 +31,12 @@
         required:false,
         default:false
       },
-      plain:{
+      plain:{ // 朴素按钮
+        type:Boolean,
+        required:false,
+        default:false
+      },
+      circular:{ // 圆角按钮
         type:Boolean,
         required:false,
         default:false
@@ -36,13 +45,18 @@
         validator(value){
           return isValidatorOneOf(value,['large','small','mini'])
         },
-        // default: 'small'
+        default: 'default-small'
       },
       type:{ // 按钮的类型 默认为default
         validator(value){
           return isValidatorOneOf(value,['primary','warning','success','info','danger','default','text'])
         },
         default:'default'
+      }
+    },
+    methods:{
+      handleClick(event){
+        this.$emit('click',event)
       }
     }
   }

@@ -14,15 +14,18 @@
     background-color: #fff;
     border-color: #ebeef5;
   }
+  &.is-circular{
+    border-radius: 20px;
+  }
 }
 
 // 类型为default
 .c-button-default {
   &:not(.is-disabled):hover{
     cursor: pointer;
-    color: #409eff;
-    border-color: #c6e2ff;
-    background-color: #ecf5ff;
+    color: $btn-primary-bg;
+    border-color: $btn-default-border-color;
+    background-color: $btn-default-bg;
   }
   &.is-plain{
     &:hover{
@@ -35,12 +38,17 @@
 /** size begin */
 // 大按钮
 .c-button-large{
+  font-size:14px;
   padding:10px 20px;
 }
 // 小按钮
-.c-button-small{
+.c-button-small,.c-button-default-small{
   font-size:12px;
   padding:9px 15px;
+}
+.c-button-mini{
+  font-size:12px;
+  padding:7px 15px;
 }
 /** size end */
 
@@ -66,17 +74,17 @@
 
   &.is-plain{
     color: $btn-primary-bg;
-    background: #ecf5ff;
-    border-color: #b3d8ff;
+    background: $btn-primary-plain-bg;
+    border-color: $btn-primary-plain-border-color;
     &:not(.is-disabled):hover{
       background: $btn-primary-bg;
       border-color: $btn-primary-bg;
       color: #fff;
     }
     &.is-disabled{
-      color: #8cc5ff;
-      background-color: #ecf5ff;
-      border-color: #d9ecff;
+      color: $btn-primary-plain-disabled-color;
+      background-color: $btn-primary-plain-disabled-bg;
+      border-color: $btn-primary-plain-disabled-border-color;
     }
   }
 }
@@ -99,6 +107,22 @@
     border-color: $btn-warning-bg-hover;
     color: #fff;
   }
+
+  &.is-plain {
+    color: #e6a23c;
+    background: #fdf6ec;
+    border-color: #f5dab1;
+    &:not(.is-disabled):hover {
+      background: #e6a23c;
+      border-color: #e6a23c;
+      color: #fff;
+    }
+    &.is-disabled {
+      color: #f0c78a;
+      background-color: #fdf6ec;
+      border-color: #faecd8;
+    }
+  }
 }
 // 类型为success
 .c-button-success {
@@ -118,6 +142,22 @@
     background: $btn-success-bg-hover;
     border-color: $btn-success-bg-hover;
     color: #fff;
+  }
+
+  &.is-plain {
+    color: #67c23a;
+    background: #f0f9eb;
+    border-color: #c2e7b0;
+    &:not(.is-disabled):hover {
+      background: #67c23a;
+      border-color: #67c23a;
+      color: #fff;
+    }
+    &.is-disabled {
+      color: #a4da89;
+      background-color: #f0f9eb;
+      border-color: #e1f3d8;
+    }
   }
 }
 // 类型为info
@@ -139,6 +179,22 @@
     border-color: $btn-info-bg-hover;
     color: #fff;
   }
+
+  &.is-plain {
+    color: #909399;
+    background: #f4f4f5;
+    border-color: #d3d4d6;
+    &:not(.is-disabled):hover {
+      background: #909399;
+      border-color: #909399;
+      color: #fff;
+    }
+    &.is-disabled {
+      color: #bcbec2;
+      background-color: #f4f4f5;
+      border-color: #e9e9eb;
+    }
+  }
 }
 // 类型为danger
 .c-button-danger {
@@ -159,6 +215,21 @@
     border-color: #f78989;
     color: #fff;
   }
+  &.is-plain {
+    color: #f56c6c;
+    background: #fef0f0;
+    border-color: #fbc4c4;
+    &:not(.is-disabled):hover {
+      background: #f56c6c;
+      border-color: #f56c6c;
+      color: #fff;
+    }
+    &.is-disabled {
+      color: #f9a7a7;
+      background-color: #fef0f0;
+      border-color: #fde2e2;
+    }
+  }
 }
 
 // 类型为文字按钮
@@ -175,7 +246,6 @@
     border-color: transparent;
   }
   &:not(.is-disabled):hover{
-    //cursor: pointer;
     background-color: transparent;
     border-color:transparent;
   }

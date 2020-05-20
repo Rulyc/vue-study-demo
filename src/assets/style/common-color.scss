@@ -1,7 +1,15 @@
+/* default颜色*/
+$btn-default-border-color: #c6e2ff;
+$btn-default-bg: #ecf5ff;
 /* primary颜色 */
 $btn-primary-bg: #409eff;
 $btn-primary-bg-disabled: #a0cfff;
 $btn-primary-bg-hover: #66b1ff;
+$btn-primary-plain-disabled-color: #8cc5ff;
+$btn-primary-plain-disabled-bg: #ecf5ff;
+$btn-primary-plain-disabled-border-color: #d9ecff;
+$btn-primary-plain-bg: #ecf5ff;
+$btn-primary-plain-border-color: #b3d8ff;
 /* warning颜色 */
 $btn-warning-bg: #e6a23c;
 $btn-warning-bg-disabled: #f3d19e;

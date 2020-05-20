@@ -39,9 +39,38 @@
       <c-button type="text" disabled>text按钮</c-button>
     </el-row>
     <h2>plain</h2>
-    <c-button plain>朴素按钮</c-button>
-    <c-button type="primary" plain>primary按钮</c-button>
-    <c-button type="primary" disabled plain>primary按钮</c-button>
+    <el-row>
+      <c-button plain>朴素按钮</c-button>
+      <c-button type="primary" plain>primary按钮</c-button>
+      <c-button type="warning" plain>warning按钮</c-button>
+      <c-button type="success"plain>success按钮</c-button>
+      <c-button type="info" plain>info按钮</c-button>
+      <c-button type="danger" plain>danger按钮</c-button>
+    </el-row>
+    <h2>plain && disabled</h2>
+    <el-row>
+      <c-button plain disabled>朴素按钮</c-button>
+      <c-button type="primary" disabled plain>primary按钮</c-button>
+      <c-button type="warning" disabled plain>warning按钮</c-button>
+      <c-button type="success" disabled plain>success按钮</c-button>
+      <c-button type="info" disabled plain>info按钮</c-button>
+      <c-button type="danger" disabled plain>danger按钮</c-button>
+    </el-row>
+    <h2>按钮尺寸</h2>
+    <el-row>
+      <c-button @click="defaultClick">默认</c-button>
+      <c-button size="large">large按钮</c-button>
+      <c-button size="small">small按钮</c-button>
+      <c-button size="mini">mini按钮</c-button>
+    </el-row>
+
+    <h2>圆角按钮</h2>
+    <el-row>
+      <c-button circular>默认</c-button>
+      <c-button size="large" circular>large按钮</c-button>
+      <c-button size="small" circular>small按钮</c-button>
+      <c-button size="mini" circular>mini按钮</c-button>
+    </el-row>
   </div>
 </template>
 

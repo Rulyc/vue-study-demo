@@ -162,5 +162,6 @@ export default {
       padding:10px 20px;
       border-bottom:1px solid #eee;
     }
+    padding-bottom:20px;
   }
 </style>
