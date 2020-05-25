@@ -12,7 +12,7 @@ export const constantRouterMap = [
     meta: { title: 'button组件' },
     children: [
       {
-        path: '/button',
+        path: '/',
         name: 'button案例',
         component: resolve => require(['@/view/biz/useComponents/button-demo'], resolve),
         meta: { title: 'button组件案例' },
