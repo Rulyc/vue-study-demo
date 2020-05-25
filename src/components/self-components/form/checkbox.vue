@@ -4,16 +4,15 @@
 <template>
   <label>
     <span>
+<!--      <input type="checkbox"-->
+<!--             v-if="group"-->
+<!--             :disabled="disabled"-->
+<!--             :value="label"-->
+<!--             :checked="currentValue"-->
+<!--             v-model="model"-->
+<!--             @change = "change"-->
+<!--      >-->
       <input type="checkbox"
-             v-if="group"
-             :disabled="disabled"
-             :value="label"
-             :checked="currentValue"
-             v-model="model"
-             @change = "change"
-      >
-      <input type="checkbox"
-             v-else
              :disabled="disabled"
              :checked="currentValue"
              @change = "change"

@@ -149,7 +149,7 @@ export default {
       //  position: absolute;
       //  right: 0;
       //  width: calc(100% - 270px);
-      height: calc(100% - 95px);
+      height: calc(100% - 116px);
       border-top-right-radius: 10px;
       padding: 20px;
       margin: 0;

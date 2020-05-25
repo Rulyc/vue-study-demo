@@ -10,6 +10,7 @@ import './assets/style/all-style.scss'
 import 'prismjs/themes/prism.css'; /* 解析md,高亮显示且解析slot */
 import './assets/icon/iconfont.css';
 import components from './components/index.js'
+import "babel-polyfill"
 Vue.use(components)
 
 Vue.use(ElementUI)

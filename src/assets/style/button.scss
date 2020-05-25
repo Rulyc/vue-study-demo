@@ -7,9 +7,9 @@
   color: #606266;
   outline: none;
   background-color: #fff;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  //display: inline-flex;
+  //justify-content: center;
+  //align-items: center;
   vertical-align: middle;
   &.is-disabled{
     color: #c0c4cc;
@@ -23,27 +23,49 @@
   }
 
   &.icon-left{
+    direction: ltr;
     >.icon{
-      order:0;
+      display: inline-block;
+      direction: rtl;
     }
     >.content{
-      odrder:1;
+      display: inline-block;
+      direction: rtl;
       margin-left:5px;
       margin-right:0px;
-     display: block;
     }
+    //>.icon{
+    //  order:0;
+    //}
+    //>.content{
+    //  odrder:1;
+    //  margin-left:5px;
+    //  margin-right:0px;
+    // display: block;
+    //}
   }
   &.icon-right{
+    direction: rtl; // 右向左
     >.icon{
-      order:1;
+      display: inline-block;
+      direction: ltr;
     }
     >.content{
-      odrder:0;
+      display: inline-block;
+      direction: ltr;
       margin-left:0px;
       margin-right:5px;
-      //display: inline-block;
-      display: block;
     }
+    //>.icon{
+    //  order:1;
+    //}
+    //>.content{
+    //  odrder:0;
+    //  margin-left:0px;
+    //  margin-right:5px;
+    //  //display: inline-block;
+    //  display: block;
+    //}
   }
 }
 
