@@ -71,6 +71,26 @@
       <c-button size="small" circular>small按钮</c-button>
       <c-button size="mini" circular>mini按钮</c-button>
     </el-row>
+
+    <h2>icon</h2>
+    <el-row>
+      <c-button plain disabled icon="c-icon-shangchuan">朴素按钮</c-button>
+      <c-button type="primary" disabled plain icon="c-icon-xiazai">primary按钮</c-button>
+      <c-button type="warning" disabled plain icon="c-icon-icon_loading">warning按钮</c-button>
+      <c-button type="success" disabled plain icon="c-icon-setup">success按钮</c-button>
+      <c-button type="info" disabled plain icon="c-icon-setup">info按钮</c-button>
+      <c-button type="danger" disabled plain icon="c-icon-setup">danger按钮</c-button>
+    </el-row>
+
+    <h2>iconPosition,默认居左</h2>
+    <el-row>
+      <c-button plain disabled icon="c-icon-shangchuan" iconPositon="right">朴素按钮</c-button>
+      <c-button type="primary" disabled plain icon="c-icon-xiazai" iconPositon="right">primary按钮</c-button>
+      <c-button type="warning" disabled plain icon="c-icon-icon_loading" iconPositon="right">warning按钮</c-button>
+      <c-button type="success" disabled plain icon="c-icon-setup" iconPositon="right">success按钮</c-button>
+      <c-button type="info" disabled plain icon="c-icon-setup" iconPositon="right">info按钮</c-button>
+      <c-button type="danger" disabled plain icon="c-icon-setup" iconPositon="right">danger按钮</c-button>
+    </el-row>
   </div>
 </template>
 

@@ -1,0 +1,37 @@
+{
+  "id": "1838852",
+  "name": "vue组件封装",
+  "font_family": "iconfont",
+  "css_prefix_text": "c-icon-",
+  "description": "基于vue的前端组件封装",
+  "glyphs": [
+    {
+      "icon_id": "4266177",
+      "name": "上传",
+      "font_class": "shangchuan",
+      "unicode": "e71a",
+      "unicode_decimal": 59162
+    },
+    {
+      "icon_id": "7335405",
+      "name": "下载",
+      "font_class": "xiazai",
+      "unicode": "eb12",
+      "unicode_decimal": 60178
+    },
+    {
+      "icon_id": "14175975",
+      "name": "设置",
+      "font_class": "setup",
+      "unicode": "e648",
+      "unicode_decimal": 58952
+    },
+    {
+      "icon_id": "13474468",
+      "name": "icon_loading",
+      "font_class": "icon_loading",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    }
+  ]
+}

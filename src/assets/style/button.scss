@@ -7,6 +7,10 @@
   color: #606266;
   outline: none;
   background-color: #fff;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
   &.is-disabled{
     color: #c0c4cc;
     cursor: not-allowed;
@@ -16,6 +20,30 @@
   }
   &.is-circular{
     border-radius: 20px;
+  }
+
+  &.icon-left{
+    >.icon{
+      order:0;
+    }
+    >.content{
+      odrder:1;
+      margin-left:5px;
+      margin-right:0px;
+     display: block;
+    }
+  }
+  &.icon-right{
+    >.icon{
+      order:1;
+    }
+    >.content{
+      odrder:0;
+      margin-left:0px;
+      margin-right:5px;
+      //display: inline-block;
+      display: block;
+    }
   }
 }
 
@@ -127,4 +155,7 @@
 }
 /** type end */
 
-
+//// button按钮中c-icon-的兄弟元素span样式设置
+//.c-button [class*=c-icon-]+span{
+//
+//}

@@ -8,6 +8,9 @@ import 'element-ui/lib/theme-chalk/index.css'
 import './assets/style/common.scss'
 import './assets/style/all-style.scss'
 import 'prismjs/themes/prism.css'; /* 解析md,高亮显示且解析slot */
+import './assets/icon/iconfont.css';
+import components from './components/index.js'
+Vue.use(components)
 
 Vue.use(ElementUI)
 Vue.config.productionTip = false

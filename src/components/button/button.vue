@@ -14,10 +14,14 @@
              'c-button-'+type,
              disabled?'is-disabled':'',
              plain ? 'is-plain':'',
-             circular?'is-circular':'']"
+             circular?'is-circular':'',
+             iconPositon?`icon-${iconPositon}`:'']"
     :disabled="disabled"
   >
-    <slot></slot>
+    <c-icon v-if="icon" class="icon" :name="icon"></c-icon>
+    <span class="content">
+      <slot></slot>
+    </span>
   </button>
 </template>
 
@@ -26,6 +30,15 @@
   export default {
     name: "c-button",
     props:{
+      icon:{ // 按钮中加入图标，非必填元素，默认为''
+        type:String,
+        required:false,
+        default:''
+      },
+      iconPositon:{ // 按钮中图标的位置，非必填，默认为left
+        type:String,
+        default:'left'
+      },
       disabled:{ // 按钮是否被禁用，默认不禁用
         type:Boolean,
         required:false,
@@ -45,7 +58,7 @@
         validator(value){
           return isValidatorOneOf(value,['large','small','mini'])
         },
-        default: 'default-small'
+        // default: 'small'
       },
       type:{ // 按钮的类型 默认为default
         validator(value){
