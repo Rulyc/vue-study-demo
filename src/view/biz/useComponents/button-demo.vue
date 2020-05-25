@@ -101,6 +101,14 @@
       <c-button type="info"  plain icon="c-icon-setup" iconPositon="right">info按钮</c-button>
       <c-button type="danger"  plain icon="c-icon-setup" iconPositon="right">danger按钮</c-button>
     </el-row>
+
+<!--    <h2>按钮组合</h2>-->
+<!--    <el-row>-->
+<!--      <c-button-group>-->
+<!--        <c-button plain icon="c-icon-shangchuan" iconPositon="right">朴素按钮</c-button>-->
+<!--        <c-button plain icon="c-icon-xiazai" iconPositon="right">primary按钮</c-button>-->
+<!--      </c-button-group>-->
+<!--    </el-row>-->
   </div>
 </template>
 

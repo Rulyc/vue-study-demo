@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div class="c-button-group">
     <slot></slot>
   </div>
 </template>
 
 <script>
   export default {
-    name: "button-group"
+    name: "c-button-group"
   }
 </script>
 
