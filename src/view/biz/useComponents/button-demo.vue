@@ -66,15 +66,25 @@
 
     <h2>圆角按钮</h2>
     <el-row>
-      <c-button circular>默认</c-button>
-      <c-button size="large" circular>large按钮</c-button>
-      <c-button size="small" circular>small按钮</c-button>
-      <c-button size="mini" circular>mini按钮</c-button>
+      <c-button radius>默认</c-button>
+      <c-button size="large" radius>large按钮</c-button>
+      <c-button size="small" radius>small按钮</c-button>
+      <c-button size="mini" radius>mini按钮</c-button>
+    </el-row>
+
+    <h2>圆形按钮</h2>
+    <el-row>
+      <c-button plain disabled icon="c-icon-shangchuan" circular></c-button>
+      <c-button type="primary" size="large"  plain icon="c-icon-xiazai" circular></c-button>
+      <c-button type="warning" size="small" plain icon="c-icon-icon_loading" circular></c-button>
+      <c-button type="success"  plain icon="c-icon-setup" circular></c-button>
+      <c-button type="info"  plain icon="c-icon-setup" circular></c-button>
+      <c-button type="danger"  size="mini" plain icon="c-icon-setup" circular></c-button>
     </el-row>
 
     <h2>icon,默认居左</h2>
     <el-row>
-      <c-button plain disabled icon="c-icon-shangchuan">朴素按钮</c-button>
+      <c-button plain icon="c-icon-shangchuan">朴素按钮</c-button>
       <c-button type="primary"  plain icon="c-icon-xiazai">primary按钮</c-button>
       <c-button type="warning" plain icon="c-icon-icon_loading">warning按钮</c-button>
       <c-button type="success"  plain icon="c-icon-setup">success按钮</c-button>
@@ -84,7 +94,7 @@
 
     <h2>iconPosition,默认居左，加入iconPositon="right"居右</h2>
     <el-row>
-      <c-button plain disabled icon="c-icon-shangchuan" iconPositon="right">朴素按钮</c-button>
+      <c-button plain icon="c-icon-shangchuan" iconPositon="right">朴素按钮</c-button>
       <c-button type="primary"  plain icon="c-icon-xiazai" iconPositon="right">primary按钮</c-button>
       <c-button type="warning"  plain icon="c-icon-icon_loading" iconPositon="right">warning按钮</c-button>
       <c-button type="success"  plain icon="c-icon-setup" iconPositon="right">success按钮</c-button>
@@ -123,4 +133,5 @@
 .el-row{
   margin:10px;
 }
+
 </style>

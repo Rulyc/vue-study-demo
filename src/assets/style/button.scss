@@ -11,15 +11,19 @@
   //justify-content: center;
   //align-items: center;
   vertical-align: middle;
-  &.is-disabled{
+  &.is-disabled{ // 禁用样式
     color: #c0c4cc;
     cursor: not-allowed;
     background-image: none;
     background-color: #fff;
     border-color: #ebeef5;
   }
-  &.is-circular{
+  &.is-radius{ // 圆角样式
     border-radius: 20px;
+  }
+  &.is-circular{ // 原型样式
+    border-radius: 50%;
+    padding:12px 14px;
   }
 
   &.icon-left{
@@ -90,15 +94,24 @@
 .c-button-large{
   font-size:14px;
   padding:10px 20px;
+  &.is-circular{
+    padding:10px 12px;
+  }
 }
 // 小按钮
 .c-button-small,.c-button-default-small{
   font-size:12px;
   padding:9px 15px;
+  &.is-circular{
+    padding:9px 11px;
+  }
 }
 .c-button-mini{
   font-size:12px;
   padding:7px 15px;
+  &.is-circular{
+    padding:7px 8px;
+  }
 }
 /** size end */
 /** type begin */
@@ -176,8 +189,3 @@
   }
 }
 /** type end */
-
-//// button按钮中c-icon-的兄弟元素span样式设置
-//.c-button [class*=c-icon-]+span{
-//
-//}

@@ -19,4 +19,15 @@
 </script>
 
 <style scoped lang="scss">
+  @keyframes spin{
+    0%{
+      transform: rotate(0deg);
+    }
+    100%{
+      transform: rotate(360deg);
+    }
+  }
+  /deep/.c-icon.c-icon-icon_loading{
+    animation: spin 3s infinite linear;
+  }
 </style>

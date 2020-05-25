@@ -5,6 +5,8 @@
 * 支持：禁用
 * 支持：朴素按钮
 * 支持：圆角按钮
+* 支持：圆形按钮
+* 支持：icon图标，icon图标位置【left,right】
 -->
 <template>
   <button
@@ -14,12 +16,13 @@
              'c-button-'+type,
              disabled?'is-disabled':'',
              plain ? 'is-plain':'',
+             radius?`is-radius`:'',
              circular?'is-circular':'',
              iconPositon?`icon-${iconPositon}`:'']"
     :disabled="disabled"
   >
     <c-icon v-if="icon" class="icon" :name="icon"></c-icon>
-    <span class="content">
+    <span v-if="!circular" class="content">
       <slot></slot>
     </span>
   </button>
@@ -49,7 +52,12 @@
         required:false,
         default:false
       },
-      circular:{ // 圆角按钮
+      radius:{ // 圆角按钮
+        type:Boolean,
+        required:false,
+        default:false
+      },
+      circular:{ // 圆形按钮
         type:Boolean,
         required:false,
         default:false
@@ -58,7 +66,6 @@
         validator(value){
           return isValidatorOneOf(value,['large','small','mini'])
         },
-        // default: 'small'
       },
       type:{ // 按钮的类型 默认为default
         validator(value){
