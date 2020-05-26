@@ -1,0 +1,107 @@
+$namespace: 'c'; // 定义所有的类以c开头
+
+// 定义基础色彩 begin
+$color-white: #FFFFFF !default; //white默认颜色为白色
+$color-black: #000000 !default; // black默认颜色为黑色
+$color-primary: #409EFF !default; //primary默认颜色为#409EFF
+$color-success: #68C32B !default; // success默认颜色为#67C23A
+$color-warning: #E5A038 !default; // warning默认颜色为#E6A23C
+$color-danger: #FC6C6C !default; // danger默认颜色为#F56C6C
+$color-info: #919499 !default; // info默认颜色为#909399
+// 通过mix进行混合色彩
+// primary
+$color-primary-light-1: mix($color-white,$color-primary,.1)!default;
+$color-primary-light-2: mix($color-white,$color-primary,.2)!default;
+$color-primary-light-3: mix($color-white,$color-primary,.3) !default;
+$color-primary-light-4: mix($color-white,$color-primary,.4) !default;
+$color-primary-light-5: mix($color-white,$color-primary,.5) !default;
+$color-primary-light-6: mix($color-white,$color-primary,.6) !default;
+$color-primary-light-7: mix($color-white,$color-primary,.7) !default;
+$color-primary-light-8: mix($color-white,$color-primary,.8) !default;
+$color-primary-light-9: mix($color-white,$color-primary,.9) !default;
+//success
+$color-success-light-8: mix($color-white,$color-success,.8)!default;
+$color-success-light-9: mix($color-white,$color-success,.9)!default;
+//$color-warning
+$color-warning-light-8: mix($color-white,$color-warning,.8)!default;
+$color-warning-light-9: mix($color-white,$color-warning,.9)!default;
+//$color-danger
+$color-danger-light-8: mix($color-white,$color-danger,.8)!default;
+$color-danger-light-9: mix($color-white,$color-danger,.9)!default;
+//$color-info
+$color-info-light-8: mix($color-white,$color-info,.8)!default;
+$color-info-light-9: mix($color-white,$color-info,.9)!default;
+// 定义基础色彩 end
+
+// 定义基础字体样式 begin
+$font-size-base: 14px !default; // 默认字体14px
+$font-size-small: 13px !default; //小字体13px
+$font-weight-primary: 500 !default; // 默认加粗500
+// 定义基础字体样式 end
+
+// 定义文本基础样式 begin
+$color-text-placeholder: #C0C4CC !default;
+// 定义文本基础样式 end
+
+// 定义基础border样式 begin
+$border-color-base: #DCDFE6 !default; // 基础颜色
+$border-color-light: #E4E7ED !default; // 明亮颜色
+$border-color-default: #606266 !default; // default颜色
+$border-color-lighter: #EBEEF5 !default;
+$border-radius-base: 4px !default; // 基础圆角4px
+// 定义基础border样式 end
+
+/* ---------------  下面事定义具体组件样式变量------------------------*/
+
+/* button */
+$button-font-size: $font-size-base !default; // 基础字体14px
+$button-font-weight: $font-weight-primary !default; // 基础加粗值500
+$button-border-radius: $border-radius-base !default; // 基础圆角4px
+$button-padding-top-bottom: 12px !default; // 上下padding默认为12px
+$button-padding-left-right: 20px !default; // 左右padding默认为20px
+// large类型btn
+$button-large-font-size: $font-size-base !default; // 基础字体14px
+$button-large-border-radius: $border-radius-base !default; // 基础圆角4px
+$button-large-padding-top-bottom:10px !default; // 上下padding默认为10px
+$button-large-padding-left-right:20px !default; // 左右padding默认为20px
+// small类型btn
+$button-small-font-size: #{$font-size-base - 2} !default; // 基础字体12px
+$button-small-border-radius: #{$border-radius-base -1} !default; // 基础圆角3px
+$button-small-padding-top-bottom: 9px !default; // 上下padding默认为9px
+$button-small-padding-left-right: 15px !default; // 左右padding默认为15px
+// mini类型btn
+$button-mini-font-size: #{$font-size-base - 2} !default; // 基础字体14px
+$button-mini-border-radius: #{$border-radius-base -1} !default; // 基础圆角3px
+$button-mini-padding-top-bottom: 7px !default; // 上下padding默认为7px
+$button-mini-padding-left-right: 15px !default; // 左右padding默认为15px
+// default类型btn色彩设置
+$button-default-font-color: $border-color-default !default; // #606266
+$button-default-background-color: $color-white !default; // #FFFFFF
+$button-default-border-color: $border-color-base !default; // #DCDFE6
+// disabled类型btn色彩设置
+$button-disabled-font-color: $color-text-placeholder !default;
+$button-disabled-background-color: $color-white !default;
+$button-disabled-border-color: $border-color-lighter !default;
+// primary类型btn色彩设置
+$button-primary-font-color: $color-primary !default;
+$button-primary-background-color: $color-white !default;
+$button-primary-border-color: $color-primary !default;
+// success类型btn色彩设置
+$button-success-font-color: $color-success !default;
+$button-success-background-color: $color-white !default;
+$button-success-border-color: $color-success !default;
+// warning类型btn色彩设置
+$button-warning-font-color: $color-warning !default;
+$button-warning-background-color: $color-white !default;
+$button-warning-border-color: $color-warning !default;
+// danger类型btn色彩设置
+$button-danger-font-color: $color-danger !default;
+$button-danger-background-color: $color-white !default;
+$button-danger-border-color: $color-danger !default;
+// info类型btn色彩设置
+$button-info-font-color: $color-info !default;
+$button-info-background-color: $color-white !default;
+$button-info-border-color: $color-info !default;
+// 激活与移入事件的混入百分比定义
+$button-hover-tint-percent: 20% !default;
+$button-active-shade-percent: 10% !default;
