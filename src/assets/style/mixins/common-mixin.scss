@@ -1,0 +1,19 @@
+@import "../common/var";
+//  不可选中
+@mixin utils-user-select($value) {
+  -moz-user-select: $value;
+  -webkit-user-select: $value;
+  -ms-user-select: $value;
+}
+
+@mixin when($state) {
+ // @at-root的内联选择器模式，将不会让你的选择器发生任何的嵌套，直接移除了父选择
+  @at-root {
+    &.#{$state-prefix + $state} {
+      // @content 就像是变量，这个变量表示了 @include 花括号里的代码
+      @content;
+    }
+  }
+}
+
+

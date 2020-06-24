@@ -86,7 +86,7 @@
     <el-row>
       <c-button plain icon="c-icon-shangchuan">朴素按钮</c-button>
       <c-button type="primary"  plain icon="c-icon-xiazai">primary按钮</c-button>
-      <c-button type="warning" plain icon="c-icon-icon_loading">warning按钮</c-button>
+      <c-button type="warning" plain loading>warning按钮</c-button>
       <c-button type="success"  plain icon="c-icon-setup">success按钮</c-button>
       <c-button type="info"  plain icon="c-icon-setup">info按钮</c-button>
       <c-button type="danger"  plain icon="c-icon-setup">danger按钮</c-button>
@@ -96,7 +96,7 @@
     <el-row>
       <c-button plain icon="c-icon-shangchuan" iconPositon="right">朴素按钮</c-button>
       <c-button type="primary"  plain icon="c-icon-xiazai" iconPositon="right">primary按钮</c-button>
-      <c-button type="warning"  plain icon="c-icon-icon_loading" iconPositon="right">warning按钮</c-button>
+      <c-button type="warning"  plain loading iconPositon="right">warning按钮</c-button>
       <c-button type="success"  plain icon="c-icon-setup" iconPositon="right">success按钮</c-button>
       <c-button type="info"  plain icon="c-icon-setup" iconPositon="right">info按钮</c-button>
       <c-button type="danger"  plain icon="c-icon-setup" iconPositon="right">danger按钮</c-button>

@@ -1,4 +1,6 @@
 $namespace: 'c'; // 定义所有的类以c开头
+$modifier-separator: '-';
+$state-prefix: 'is-'; // 定义设置属性后，样式以is-开头
 
 // 定义基础色彩 begin
 $color-white: #FFFFFF !default; //white默认颜色为白色
@@ -41,12 +43,17 @@ $font-weight-primary: 500 !default; // 默认加粗500
 
 // 定义文本基础样式 begin
 $color-text-placeholder: #C0C4CC !default;
+$color-text-regular: #606266 !default;
 // 定义文本基础样式 end
 
 // 定义基础border样式 begin
 $border-color-base: #DCDFE6 !default; // 基础颜色
 $border-color-light: #E4E7ED !default; // 明亮颜色
 $border-color-default: #606266 !default; // default颜色
+$border-width-base: 1px !default;
+$border-style-base: solid !default;
+$border-color-hover: $color-text-placeholder !default;
+$border-base: $border-width-base $border-style-base $border-color-base !default;
 $border-color-lighter: #EBEEF5 !default;
 $border-radius-base: 4px !default; // 基础圆角4px
 // 定义基础border样式 end
@@ -83,24 +90,24 @@ $button-disabled-font-color: $color-text-placeholder !default;
 $button-disabled-background-color: $color-white !default;
 $button-disabled-border-color: $border-color-lighter !default;
 // primary类型btn色彩设置
-$button-primary-font-color: $color-primary !default;
-$button-primary-background-color: $color-white !default;
+$button-primary-font-color: $color-white !default;
+$button-primary-background-color: $color-primary !default;
 $button-primary-border-color: $color-primary !default;
 // success类型btn色彩设置
-$button-success-font-color: $color-success !default;
-$button-success-background-color: $color-white !default;
+$button-success-font-color: $color-white !default;
+$button-success-background-color: $color-success !default;
 $button-success-border-color: $color-success !default;
 // warning类型btn色彩设置
-$button-warning-font-color: $color-warning !default;
-$button-warning-background-color: $color-white !default;
+$button-warning-font-color: $color-white !default;
+$button-warning-background-color: $color-warning !default;
 $button-warning-border-color: $color-warning !default;
 // danger类型btn色彩设置
-$button-danger-font-color: $color-danger !default;
-$button-danger-background-color: $color-white !default;
+$button-danger-font-color: $color-white !default;
+$button-danger-background-color: $color-danger !default;
 $button-danger-border-color: $color-danger !default;
 // info类型btn色彩设置
-$button-info-font-color: $color-info !default;
-$button-info-background-color: $color-white !default;
+$button-info-font-color: $color-white !default;
+$button-info-background-color: $color-info !default;
 $button-info-border-color: $color-info !default;
 // 激活与移入事件的混入百分比定义
 $button-hover-tint-percent: 20% !default;

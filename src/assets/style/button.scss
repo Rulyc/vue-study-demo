@@ -1,191 +1,212 @@
-// 默认按钮的颜色
-.c-button{
-  border-radius: 4px;
-  padding: 12px 20px;
+@import "common/var";
+@import "common/mixin";
+@import "mixins/button-mixins";
+@import "mixins/common-mixin";
+
+// 默认button按钮样式设置
+@include base(button) {
   display: inline-block;
-  border: 1px solid #dcdfe6;
-  color: #606266;
+  cursor: pointer;
+  background-color: $color-white;
+  border:1px solid $border-color-base;
+  color: $color-text-regular;
+  text-align: center;
+  box-sizing: border-box;
   outline: none;
-  background-color: #fff;
-  //display: inline-flex;
-  //justify-content: center;
-  //align-items: center;
-  vertical-align: middle;
-  &.is-disabled{ // 禁用样式
-    color: #c0c4cc;
-    cursor: not-allowed;
-    background-image: none;
-    background-color: #fff;
-    border-color: #ebeef5;
+  margin: 0;
+  font-weight: $button-font-weight;
+  line-height: 1;
+  white-space: nowrap;
+  @include utils-user-select(none);
+  & + & {
+    margin-left: 10px;
   }
-  &.is-radius{ // 圆角样式
+
+  // 设置默认大小
+  @include button-size($button-padding-top-bottom, $button-padding-left-right, $button-font-size, $button-border-radius);
+
+  // 鼠标移入 获取焦点
+  &:hover, &:focus {
+    color: $color-primary;
+    background-color: mix($color-white, $color-primary, 90%);
+    border-color: mix($color-white, $color-primary, 70%);
+  }
+
+  // 激活
+  &:active {
+    color: mix($color-black, $color-primary, $button-active-shade-percent);
+    border-color: mix($color-black, $color-primary, $button-active-shade-percent);
+    outline: none;
+  }
+
+  // 兼容火狐浏览器
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  // 图标在前
+  &.icon-left {
+    direction: ltr;
+
+    > .icon {
+      display: inline-block;
+      direction: rtl;
+    }
+
+    > .content {
+      display: inline-block;
+      direction: rtl;
+      margin-left: 5px;
+      margin-right: 0px;
+    }
+  }
+  // 图标在后
+  &.icon-right {
+    direction: rtl; // 右向左
+    > .icon {
+      display: inline-block;
+      direction: ltr;
+    }
+
+    > .content {
+      display: inline-block;
+      direction: ltr;
+      margin-left: 0px;
+      margin-right: 5px;
+    }
+  }
+
+  // 当为plain时
+  @include when(plain) {
+    // plain 鼠标移入、获取焦点
+    &:hover, &:focus {
+      color: $color-primary;
+      background-color: $color-white;
+      border-color: $color-primary;
+    }
+
+    // plain 激活
+    &:active {
+      color: mix($color-black, $color-primary, $button-active-shade-percent);
+      background-color: $color-white;
+      border-color: mix($color-black, $color-primary, $button-active-shade-percent);
+      outline: none;
+    }
+  }
+
+  // 当为active时
+  @include when(active) {
+    color: mix($color-black, $color-primary, $button-active-shade-percent);
+    border-color: mix($color-black, $color-primary, $button-active-shade-percent);
+  }
+
+  // 当为disabled
+  @include when(disabled) {
+    &, &:hover, &:focus {
+      color: $button-disabled-font-color;
+      background-color: $button-disabled-background-color;
+      border-color: $button-disabled-border-color;
+      cursor: not-allowed;
+    }
+
+    &.c-button-text {
+      background: transparent;
+    }
+
+    &.is-plain {
+      &, &:hover, &:focus {
+        background-color: $color-white;
+        border-color: $button-disabled-border-color;
+        color: $button-disabled-font-color;
+      }
+    }
+  }
+
+  @include when(loading) {
+    position: relative;
+    pointer-events: none;
+
+    &:before {
+      pointer-events: none;
+      content: '';
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      right: -1px;
+      bottom: -1px;
+      border-radius: inherit;
+      background-color: rgba(255,255,255,.35);
+    }
+  }
+
+  // 当为radius 圆角
+  @include when(radius){
+    padding:12px 23px;
     border-radius: 20px;
   }
-  &.is-circular{ // 原型样式
+
+  // 当为radius 圆角
+  @include when(circular){
     border-radius: 50%;
-    padding:12px 14px;
+    padding: $button-padding-top-bottom;
   }
 
-  &.icon-left{
-    direction: ltr;
-    >.icon{
-      display: inline-block;
-      direction: rtl;
-    }
-    >.content{
-      display: inline-block;
-      direction: rtl;
-      margin-left:5px;
-      margin-right:0px;
-    }
-    //>.icon{
-    //  order:0;
-    //}
-    //>.content{
-    //  odrder:1;
-    //  margin-left:5px;
-    //  margin-right:0px;
-    // display: block;
-    //}
-  }
-  &.icon-right{
-    direction: rtl; // 右向左
-    >.icon{
-      display: inline-block;
-      direction: ltr;
-    }
-    >.content{
-      display: inline-block;
-      direction: ltr;
-      margin-left:0px;
-      margin-right:5px;
-    }
-    //>.icon{
-    //  order:1;
-    //}
-    //>.content{
-    //  odrder:0;
-    //  margin-left:0px;
-    //  margin-right:5px;
-    //  //display: inline-block;
-    //  display: block;
-    //}
-  }
-}
-
-// 类型为default
-.c-button-default {
-  &:not(.is-disabled):hover{
-    cursor: pointer;
-    color: $btn-primary-bg;
-    border-color: $btn-default-border-color;
-    background-color: $btn-default-bg;
-  }
-  &.is-plain{
-    &:hover{
-      background: #fff;
-      border-color: $btn-primary-bg;
-      color: $btn-primary-bg;
-    }
-  }
-}
-/** size begin */
-// 大按钮
-.c-button-large{
-  font-size:14px;
-  padding:10px 20px;
-  &.is-circular{
-    padding:10px 12px;
-  }
-}
-// 小按钮
-.c-button-small,.c-button-default-small{
-  font-size:12px;
-  padding:9px 15px;
-  &.is-circular{
-    padding:9px 11px;
-  }
-}
-.c-button-mini{
-  font-size:12px;
-  padding:7px 15px;
-  &.is-circular{
-    padding:7px 8px;
-  }
-}
-/** size end */
-/** type begin */
-@mixin btnStyle($btn-bg, $btn-bg-disabled,$btn-bg-hover,$btn-plain-disabled-color,$btn-plain-disabled-bg,$btn-plain-disabled-border-color,$btn-plain-bg,$btn-plain-border-color) {
-  color: #fff;
-  background-color: $btn-bg;
-  border-color: $btn-bg;
-  &:hover,&.is-disabled{
-    color: #fff;
-  }
-  &.is-disabled{
-    cursor: not-allowed;
-    background-color: $btn-bg-disabled;
-    border-color: $btn-bg-disabled;
-  }
-  &:not(.is-disabled):hover{
-    cursor: pointer;
-    background: $btn-bg-hover;
-    border-color: $btn-bg-hover;
-    color: #fff;
+  @include type(primary) {
+    @include button-type-style($button-primary-font-color, $button-primary-background-color, $button-primary-border-color)
   }
 
-  &.is-plain{
-    color: $btn-bg;
-    background: $btn-plain-bg;
-    border-color: $btn-plain-border-color;
-    &:not(.is-disabled):hover{
-      background: $btn-bg;
-      border-color: $btn-bg;
-      color: #fff;
-    }
-    &.is-disabled{
-      color: $btn-plain-disabled-color;
-      background-color: $btn-plain-disabled-bg;
-      border-color: $btn-plain-disabled-border-color;
-    }
+  @include type(warning) {
+    @include button-type-style($button-warning-font-color, $button-warning-background-color, $button-warning-border-color)
   }
-}
-//  类型为primary
-.c-button-primary{
-  @include btnStyle($btn-primary-bg, $btn-primary-bg-disabled,$btn-primary-bg-hover, $btn-primary-plain-disabled-color,$btn-primary-plain-disabled-bg,$btn-primary-plain-disabled-border-color, $btn-primary-plain-bg,$btn-primary-plain-border-color);
-}
-//  类型为warning
-.c-button-warning{
-  @include btnStyle($btn-warning-bg, $btn-warning-bg-disabled,$btn-warning-bg-hover, $btn-warning-plain-disabled-color,$btn-warning-plain-disabled-bg,$btn-warning-plain-disabled-border-color, $btn-warning-plain-bg,$btn-warning-plain-border-color);
-}
-//  类型为success
-.c-button-success{
-  @include btnStyle($btn-success-bg, $btn-success-bg-disabled,$btn-success-bg-hover, $btn-success-plain-disabled-color,$btn-success-plain-disabled-bg,$btn-success-plain-disabled-border-color, $btn-success-plain-bg,$btn-success-plain-border-color);
-}
-//  类型为info
-.c-button-info{
-  @include btnStyle($btn-info-bg, $btn-info-bg-disabled,$btn-info-bg-hover, $btn-info-plain-disabled-color,$btn-info-plain-disabled-bg,$btn-info-plain-disabled-border-color, $btn-info-plain-bg,$btn-info-plain-border-color);
-}
-//  类型为danger
-.c-button-danger{
-  @include btnStyle($btn-danger-bg, $btn-danger-bg-disabled,$btn-danger-bg-hover, $btn-danger-plain-disabled-color,$btn-danger-plain-disabled-bg,$btn-danger-plain-disabled-border-color, $btn-danger-plain-bg,$btn-danger-plain-border-color);
-}
-// 类型为文字按钮
-.c-button-text {
-  border-color: transparent;
-  color: #409eff;
-  background: transparent;
-  padding-left: 0;
-  padding-right: 0;
-  &.is-disabled{
-    color: #c0c4cc;
-    cursor: not-allowed;
-    background-color: transparent;
+
+  @include type(danger) {
+    @include button-type-style($button-danger-font-color, $button-danger-background-color, $button-danger-border-color)
+  }
+
+  @include type(info) {
+    @include button-type-style($button-info-font-color, $button-info-background-color, $button-info-border-color)
+  }
+
+  @include type(success) {
+    @include button-type-style($button-success-font-color, $button-success-background-color, $button-success-border-color)
+  }
+
+  @include type(large){
+    @include button-size($button-large-padding-top-bottom, $button-large-padding-left-right, $button-large-font-size, $button-large-border-radius)
+  }
+
+  @include type(small){
+    @include button-size($button-small-padding-top-bottom, $button-small-padding-left-right, $button-small-font-size, $button-small-border-radius)
+  }
+
+  @include type(mini){
+    @include button-size($button-mini-padding-top-bottom, $button-mini-padding-left-right, $button-mini-font-size, $button-mini-border-radius)
+  }
+
+  @include type(text) {
     border-color: transparent;
-  }
-  &:not(.is-disabled):hover{
-    background-color: transparent;
-    border-color:transparent;
+    color: $color-primary;
+    background: transparent;
+    padding-left: 0;
+    padding-right: 0;
+
+    &:hover,
+    &:focus {
+      color: mix($color-white, $color-primary, $button-hover-tint-percent);
+      border-color: transparent;
+      background-color: transparent;
+    }
+    &:active {
+      color: mix($color-black, $color-primary, $button-active-shade-percent);
+      border-color: transparent;
+      background-color: transparent;
+    }
+
+    &.is-disabled,
+    &.is-disabled:hover,
+    &.is-disabled:focus {
+      border-color: transparent;
+    }
   }
 }
-/** type end */
+

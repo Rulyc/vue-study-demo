@@ -18,10 +18,12 @@
              plain ? 'is-plain':'',
              radius?`is-radius`:'',
              circular?'is-circular':'',
-             iconPositon?`icon-${iconPositon}`:'']"
-    :disabled="disabled"
+             iconPositon?`icon-${iconPositon}`:'',
+             loading? 'is-loading': '']"
+    :disabled="buttonDisabled || loading"
   >
-    <c-icon v-if="icon" class="icon" :name="icon"></c-icon>
+    <c-icon class="icon" name="c-icon-icon_loading" v-if="loading"></c-icon>
+    <c-icon v-if="icon && !loading" class="icon" :name="icon"></c-icon>
     <span v-if="!circular" class="content">
       <slot></slot>
     </span>
@@ -33,6 +35,7 @@
   export default {
     name: "c-button",
     props:{
+      loading: Boolean, // 加载中
       icon:{ // 按钮中加入图标，非必填元素，默认为''
         type:String,
         required:false,
@@ -74,6 +77,11 @@
         default:'default'
       }
     },
+    computed: {
+      buttonDisabled() {
+        return this.disabled
+      }
+    },
     methods:{
       handleClick(event){
         this.$emit('click',event)
@@ -82,6 +90,16 @@
   }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  @keyframes spin{
+    0%{
+      transform: rotate(0deg);
+    }
+    100%{
+      transform: rotate(360deg);
+    }
+  }
+  .c-icon.c-icon-icon_loading{
+    animation: spin 3s infinite linear;
+  }
 </style>
