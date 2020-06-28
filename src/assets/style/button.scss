@@ -151,38 +151,47 @@
     padding: $button-padding-top-bottom;
   }
 
+  // primary
   @include type(primary) {
     @include button-type-style($button-primary-font-color, $button-primary-background-color, $button-primary-border-color)
   }
 
+  // warning
   @include type(warning) {
     @include button-type-style($button-warning-font-color, $button-warning-background-color, $button-warning-border-color)
   }
 
+  // danger
   @include type(danger) {
     @include button-type-style($button-danger-font-color, $button-danger-background-color, $button-danger-border-color)
   }
 
+  // info
   @include type(info) {
     @include button-type-style($button-info-font-color, $button-info-background-color, $button-info-border-color)
   }
 
+  // success
   @include type(success) {
     @include button-type-style($button-success-font-color, $button-success-background-color, $button-success-border-color)
   }
 
+  // large
   @include type(large){
     @include button-size($button-large-padding-top-bottom, $button-large-padding-left-right, $button-large-font-size, $button-large-border-radius)
   }
 
+  //small
   @include type(small){
     @include button-size($button-small-padding-top-bottom, $button-small-padding-left-right, $button-small-font-size, $button-small-border-radius)
   }
 
+  // mini
   @include type(mini){
     @include button-size($button-mini-padding-top-bottom, $button-mini-padding-left-right, $button-mini-font-size, $button-mini-border-radius)
   }
 
+  // text
   @include type(text) {
     border-color: transparent;
     color: $color-primary;
@@ -210,3 +219,55 @@
   }
 }
 
+@include base(button-group) {
+  display: inline-block;
+  vertical-align: middle;
+  &{
+    >.c-button{
+      margin-left:0;
+      &:first-child {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      &:last-child {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      &:not(:last-child) {
+        margin-right: -4px;
+      }
+      &:not(:first-child):not(:last-child) {
+        border-radius: 0;
+      }
+      &:first-child,&:last-child {
+        border-top-right-radius: $button-border-radius;
+        border-bottom-right-radius: $button-border-radius;
+        border-top-left-radius: $button-border-radius;
+        border-bottom-left-radius: $button-border-radius;
+
+        &.is-round {
+          border-radius: 20px;
+        }
+
+        &.is-circle {
+          border-radius: 50%;
+        }
+      }
+    }
+
+    @each $type in (primary, success, warning, danger, info) {
+      .c-button-#{$type} {
+        &:first-child {
+          border-right-color: rgba($color-white, 0.5);
+        }
+        &:last-child {
+          border-left-color: rgba($color-white, 0.5);
+        }
+        &:not(:first-child):not(:last-child) {
+          border-left-color: rgba($color-white, 0.5);
+          border-right-color: rgba($color-white, 0.5);
+        }
+      }
+    }
+  }
+}
