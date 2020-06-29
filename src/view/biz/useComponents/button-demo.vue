@@ -126,11 +126,21 @@
 
 <script>
   // import cButton from '@/components/self-components/c-button'
+  import axios from 'axios'
   import cButton from '@/components/button/button'
   export default {
     name: "Demo01",
     components:{
       cButton
+    },
+    mounted(){
+      // axios.get('http://localhost:3000/demo')
+      //   .then(e => {
+      //     console.log(e,'ggggggggggggg')
+      //   })
+      //   .catch(err => {
+      //     console.log(err)
+      //   })
     },
     methods:{
       /** defalut的点击事件 */
