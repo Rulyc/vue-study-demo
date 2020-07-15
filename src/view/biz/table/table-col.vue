@@ -14,7 +14,7 @@
     <el-row style="margin-top:20px;">
       <el-table :data="tableData1"
                 ref="table"
-                height="100%"
+                height="400"
                 :span-method="objectSpanMethod"
                 :summary-method="getSummaries"
                 :show-summary="true"

@@ -7,9 +7,6 @@
       :closable="false">
     </el-alert>
     <div id="main" style="width: 500px;height: 250px;"></div>
-    <div  @click="submit">4444444444</div>
-    <vue-button type="warn">警告按钮</vue-button>
-    <vue-msg ref="msg" ></vue-msg>
   </div>
 </template>
 
@@ -26,12 +23,6 @@
       this.dd()
     },
     methods:{
-      submit(){
-        this.$nextTick(()=>{
-          console.log(this.$refs.msg)
-          this.$refs.msg.msgPlugin("请输入电话", 5000)
-        })
-      },
       dd(){
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('main'));
