@@ -1,8 +1,12 @@
+<!--
+* @Description: 动态合并表格列之增加指标项，指标项不合并
+* @Author: Rulyc
+* @Operating: 在table.vue界面，点击弹窗即可打开
+-->
 <template>
   <div style="height: 70%;">
     <el-row :gutter="20">
-      <el-col :span="6"
-              style="padding-top:5px;">
+      <el-col :span="6" style="padding-top:5px;">
             <span>考核周期：
               <span>2019年11月考核</span>
             </span>
@@ -24,15 +28,8 @@
                 @expand-change="expandChange"
                 border
                 class="showAll" size="small">
-        <el-table-column width="200px"
-                         prop="objectName"
-                         label="名称">
-        </el-table-column>
-        <el-table-column prop="workStatus"
-                         align="center"
-                         width="60px"
-                         label="状态"
-                         show-overflow-tooltip>
+        <el-table-column width="200px" prop="objectName" label="名称"></el-table-column>
+        <el-table-column prop="workStatus" align="center" width="60px" label="状态" show-overflow-tooltip>
           <template  slot-scope="scope">
             <span v-if="scope.row.workStatus=='1'">{{"提前"}}</span>
             <span v-else-if="scope.row.workStatus=='2'">{{"正常"}}</span>
@@ -43,50 +40,22 @@
             <span v-else-if="scope.row.workStatus=='7'">{{"未启动"}}</span>
           </template>
         </el-table-column>
-        <el-table-column width="65px"
-                         prop="workProgress"
-                         align="center"
-                         label="进度(%)">
+        <el-table-column width="65px" prop="workProgress" align="center" label="进度(%)">
         </el-table-column>
-        <el-table-column width="45px"
-                         prop="timelong"
-                         align="center"
-                         label="工时">
-        </el-table-column>
-        <el-table-column width="80px"
-                         prop="weight"
-                         align="center"
-                         label="权重(%)">
-        </el-table-column>
-        <el-table-column width="80px"
-                         prop="selfRating"
-                         align="center"
-                         label="自评分">
-        </el-table-column>
-        <el-table-column prop="selfDiffScoreDescribe"
-                         width="150px"
-                         label="加减分说明">
-        </el-table-column>
-        <el-table-column prop="remarks"
-                         width="350px"
-                         label="工作内容">
-        </el-table-column>
-        <el-table-column prop="name"
-                         label="评估人">
-        </el-table-column>
-        <el-table-column prop="kpiScore"
-                         label="评估分数">
-        </el-table-column>
-        <el-table-column prop="assesseDiffScoreDescribe"
-                         label="加减分说明"
-                         width="300">
-        </el-table-column>
+        <el-table-column width="45px" prop="timelong" align="center" label="工时"></el-table-column>
+        <el-table-column width="80px" prop="weight" align="center" label="权重(%)"></el-table-column>
+        <el-table-column width="80px" prop="selfRating" align="center" label="自评分"></el-table-column>
+        <el-table-column prop="selfDiffScoreDescribe" width="150px" label="加减分说明"></el-table-column>
+        <el-table-column prop="remarks" width="350px" label="工作内容"></el-table-column>
+        <el-table-column prop="name" label="评估人"></el-table-column>
+        <el-table-column prop="kpiScore" label="评估分数"></el-table-column>
+        <el-table-column prop="assesseDiffScoreDescribe" label="加减分说明" width="300"></el-table-column>
+        <!--  动态表格列      -->
         <el-table-column v-for="(item,index) in columns"
                          :key="index"
                          :label="item.label"
                          :prop="item.value"
-                         :width="item.width"
-        >
+                         :width="item.width">
         </el-table-column>
       </el-table>
     </el-row>

@@ -10,7 +10,7 @@
     </el-alert>
     <el-table
       :data="tableData"
-      height="500"
+      height="400"
       style="width: 100%;margin-bottom: 20px;"
       default-expand-all
       :show-summary="true"

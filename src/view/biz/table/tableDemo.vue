@@ -3,6 +3,7 @@
    <el-table
      :data="tableData"
      style="width: 100%;margin-bottom: 20px;"
+     height="400"
      :span-method="arraySpanMethod"
      row-key="id"
      border

@@ -20,6 +20,8 @@ export default {
     overflow: hidden;
   }
   #app {
+    min-width:1000px;
+    overflow: hidden;
     height: 100%;
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;

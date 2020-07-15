@@ -1,98 +1,107 @@
 <!--
-表格中存在tree,合并列问题
+* @Description: elementUI表格根据内容相同，动态合并表格列
+* @Author: Rulyc
+* @Operating: 在浏览器地址栏输入路径/tableCol即可查看效果
 -->
 <template>
   <div>
-    <el-alert title="动态合并表格列" type="success" :closable="false"></el-alert>
-    <el-row style="margin-bottom:10px; display: flex; justify-content: flex-end">
-      <el-button type="primary" @click="dialogClick" size="mini">弹窗</el-button>
-    </el-row>
-    <el-table :data="tableData1"
-              ref="table"
-              height="400"
-              :span-method="objectSpanMethod"
-              :summary-method="getSummaries"
-              :show-summary="true"
-              style="width: 100%;margin-bottom: 20px;"
-              default-expand-all
-              row-key="id"
-              @expand-change="expandChange"
-              border
-              class="showAll" size="small">
-      <el-table-column width="200px"
-                       prop="objectName"
-                       label="名称">
-      </el-table-column>
-      <el-table-column prop="workStatus"
-                       align="center"
-                       width="60px"
-                       label="状态"
-                       show-overflow-tooltip>
-        <template  slot-scope="scope">
-          <span v-if="scope.row.workStatus=='1'">{{"提前"}}</span>
-          <span v-else-if="scope.row.workStatus=='2'">{{"正常"}}</span>
-          <span v-else-if="scope.row.workStatus=='3'">{{"滞后"}}</span>
-          <span v-else-if="scope.row.workStatus=='4'">{{"已完成"}}</span>
-          <span v-else-if="scope.row.workStatus=='5'">{{"暂停"}}</span>
-          <span v-else-if="scope.row.workStatus=='6'">{{"中止"}}</span>
-          <span v-else-if="scope.row.workStatus=='7'">{{"未启动"}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column width="65px"
-                       prop="workProgress"
-                       align="center"
-                       label="进度(%)">
-      </el-table-column>
-      <el-table-column width="45px"
-                       prop="timelong"
-                       align="center"
-                       label="工时">
-      </el-table-column>
-      <el-table-column width="80px"
-                       prop="weight"
-                       align="center"
-                       label="权重(%)">
-      </el-table-column>
-      <el-table-column width="80px"
-                       prop="selfRating"
-                       align="center"
-                       label="自评分">
-      </el-table-column>
-      <el-table-column prop="selfDiffScoreDescribe"
-                       width="150px"
-                       label="加减分说明">
-      </el-table-column>
-      <el-table-column prop="remarks"
-                       width="350px"
-                       label="工作内容">
-      </el-table-column>
-      <el-table-column prop="name"
-                       label="评估人">
-      </el-table-column>
-      <el-table-column prop="kpiScore"
-                       label="评估分数">
-      </el-table-column>
-      <el-table-column prop="assesseDiffScoreDescribe"
-                       label="加减分说明"
-                       width="300">
-      </el-table-column>
-      <el-table-column v-for="(item,index) in columns"
-                       :key="index"
-                       :label="item.label"
-                       :prop="item.value"
-                       :width="item.width"
-      >
-      </el-table-column>
-    </el-table>
+    <!-- 标题部分   -->
+    <div>
+      <el-alert title="elementUI表格根据内容相同，动态和变革表格列" type="success" :closable="false"></el-alert>
+    </div>
+    <!-- 内容部分   -->
+    <div>
+      <el-row style="margin-bottom:10px; display: flex; justify-content: flex-end">
+        <el-button type="primary" @click="dialogClick" size="mini">弹窗</el-button>
+      </el-row>
+      <el-table :data="tableData1"
+                ref="table"
+                height="400"
+                :span-method="objectSpanMethod"
+                :summary-method="getSummaries"
+                :show-summary="true"
+                style="width: 100%;margin-bottom: 20px;"
+                default-expand-all
+                row-key="id"
+                @expand-change="expandChange"
+                border
+                class="showAll" size="small">
+        <el-table-column width="200px"
+                         prop="objectName"
+                         label="名称">
+        </el-table-column>
+        <el-table-column prop="workStatus"
+                         align="center"
+                         width="60px"
+                         label="状态"
+                         show-overflow-tooltip>
+          <template  slot-scope="scope">
+            <span v-if="scope.row.workStatus=='1'">{{"提前"}}</span>
+            <span v-else-if="scope.row.workStatus=='2'">{{"正常"}}</span>
+            <span v-else-if="scope.row.workStatus=='3'">{{"滞后"}}</span>
+            <span v-else-if="scope.row.workStatus=='4'">{{"已完成"}}</span>
+            <span v-else-if="scope.row.workStatus=='5'">{{"暂停"}}</span>
+            <span v-else-if="scope.row.workStatus=='6'">{{"中止"}}</span>
+            <span v-else-if="scope.row.workStatus=='7'">{{"未启动"}}</span>
+          </template>
+        </el-table-column>
+        <el-table-column width="65px"
+                         prop="workProgress"
+                         align="center"
+                         label="进度(%)">
+        </el-table-column>
+        <el-table-column width="45px"
+                         prop="timelong"
+                         align="center"
+                         label="工时">
+        </el-table-column>
+        <el-table-column width="80px"
+                         prop="weight"
+                         align="center"
+                         label="权重(%)">
+        </el-table-column>
+        <el-table-column width="80px"
+                         prop="selfRating"
+                         align="center"
+                         label="自评分">
+        </el-table-column>
+        <el-table-column prop="selfDiffScoreDescribe"
+                         width="150px"
+                         label="加减分说明">
+        </el-table-column>
+        <el-table-column prop="remarks"
+                         width="350px"
+                         label="工作内容">
+        </el-table-column>
+        <el-table-column prop="name"
+                         label="评估人">
+        </el-table-column>
+        <el-table-column prop="kpiScore"
+                         label="评估分数">
+        </el-table-column>
+        <el-table-column prop="assesseDiffScoreDescribe"
+                         label="加减分说明"
+                         width="300">
+        </el-table-column>
+        <el-table-column v-for="(item,index) in columns"
+                         :key="index"
+                         :label="item.label"
+                         :prop="item.value"
+                         :width="item.width"
+        >
+        </el-table-column>
+      </el-table>
+    </div>
 
-    <el-dialog :visible.sync="showVisible" v-if='showVisible' :close-on-click-modal="false" title="合并详情" width="95%">
+
+    <el-dialog :visible.sync="showVisible" v-if='showVisible' :close-on-click-modal="false" title="合并详情" width="90%">
       <tableCol :rowID="rowID" :visible="showVisible"/>
     </el-dialog>
   </div>
 </template>
 
 <script>
-  import tableCol from './table-col.vue'
+  import tableCol from './components/table-col.vue'
   export default {
     name: "one",
     components:{

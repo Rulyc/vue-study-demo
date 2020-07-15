@@ -41,10 +41,10 @@ export const constantRouterMap = [
   },
   {
     path: '/table',
-    name: 'elementUI表格中的实例',
+    name: '表格',
     component: Layout,
     // redirect: '/',
-    meta: { title: 'elementUI表格中的实例' },
+    meta: { title: '表格' },
     children: [
       {
         path: '/burnoutChart',
