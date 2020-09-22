@@ -24,6 +24,12 @@ export const constantRouterMap = [
         name: 'demo02',
         component: resolve => require(['@/view/biz/demo02'], resolve),
         meta: { title: 'demo02' },
+      },
+      {
+        path: '/vIFvFor',
+        name: 'vue-demo01',
+        component: resolve => require(['@/view/biz/vue-demo01'], resolve),
+        meta: { title: 'demo02' },
       }
     ]
   }
